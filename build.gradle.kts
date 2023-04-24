@@ -4,7 +4,7 @@ plugins {
     java
     kotlin("jvm") version "1.9.0-dev-4392"
 }
-group = "org.demiurg906.kotlin.plugin"
+group = "com.soarex.autofactory.kotlin.plugin"
 version = "0.1"
 
 val kotlinVersion: String by project.properties
@@ -48,6 +48,7 @@ dependencies {
 }
 
 tasks.test {
+    dependsOn(":plugin-annotations:jar", ":generateTests")
     useJUnitPlatform()
     doFirst {
         setLibraryProperty("org.jetbrains.kotlin.test.kotlin-stdlib", "kotlin-stdlib")
@@ -68,7 +69,7 @@ tasks.withType<KotlinCompile>().configureEach {
 
 tasks.create<JavaExec>("generateTests") {
     classpath = sourceSets.test.get().runtimeClasspath
-    mainClass.set("ru.itmo.kotlin.plugin.GenerateTestsKt")
+    mainClass.set("com.soarex.autofactory.kotlin.plugin.GenerateTestsKt")
 }
 
 fun Test.setLibraryProperty(propName: String, jarName: String) {

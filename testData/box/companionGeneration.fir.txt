@@ -1,0 +1,160 @@
+FILE: companionGeneration.kt
+    package foo.bar
+
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final data class DataClassWithoutCompanion : R|kotlin/Any| {
+        private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutCompanion| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithoutCompanion|.R|foo/bar/DataClassWithoutCompanion.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithoutCompanion|.R|foo/bar/DataClassWithoutCompanion.b|): R|foo/bar/DataClassWithoutCompanion|
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final val cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithoutCompanion/Companion/ConstructorArguments, foo/bar/DataClassWithoutCompanion>|
+                public get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithoutCompanion/Companion/ConstructorArguments, foo/bar/DataClassWithoutCompanion>|
+
+            private constructor(): R|foo/bar/DataClassWithoutCompanion.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+        }
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final data class DataClassWithCompanion : R|kotlin/Any| {
+        private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithCompanion| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final companion object Companion : R|kotlin/Any| {
+            private constructor(): R|foo/bar/DataClassWithCompanion.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val x: R|kotlin/Int| = Int(42)
+                public get(): R|kotlin/Int|
+
+            public final val cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithCompanion/Companion/ConstructorArguments, foo/bar/DataClassWithCompanion>|
+                public get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithCompanion/Companion/ConstructorArguments, foo/bar/DataClassWithCompanion>|
+
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithCompanion|.R|foo/bar/DataClassWithCompanion.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithCompanion|.R|foo/bar/DataClassWithCompanion.b|): R|foo/bar/DataClassWithCompanion|
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final data class DataClassWithNamedCompanion : R|kotlin/Any| {
+        private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithNamedCompanion| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final companion object NamedCompanion : R|kotlin/Any| {
+            private constructor(): R|foo/bar/DataClassWithNamedCompanion.NamedCompanion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val x: R|kotlin/Int| = Int(42)
+                public get(): R|kotlin/Int|
+
+            public final val cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithNamedCompanion/NamedCompanion/ConstructorArguments, foo/bar/DataClassWithNamedCompanion>|
+                public get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithNamedCompanion/NamedCompanion/ConstructorArguments, foo/bar/DataClassWithNamedCompanion>|
+
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithNamedCompanion|.R|foo/bar/DataClassWithNamedCompanion.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithNamedCompanion|.R|foo/bar/DataClassWithNamedCompanion.b|): R|foo/bar/DataClassWithNamedCompanion|
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final class RegularClassWithoutCompanion : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithoutCompanion| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final class RegularClassWithCompanion : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithCompanion| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final companion object Companion : R|kotlin/Any| {
+            private constructor(): R|foo/bar/RegularClassWithCompanion.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val x: R|kotlin/Int| = Int(42)
+                public get(): R|kotlin/Int|
+
+        }
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final class RegularClassWithNamedCompanion : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithNamedCompanion| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final companion object NamedCompanion : R|kotlin/Any| {
+            private constructor(): R|foo/bar/RegularClassWithNamedCompanion.NamedCompanion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val x: R|kotlin/Int| = Int(42)
+                public get(): R|kotlin/Int|
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval d1: R|foo/bar/DataClassWithoutCompanion.Companion| = Q|foo/bar/DataClassWithoutCompanion.Companion|
+        lval d2: R|foo/bar/DataClassWithCompanion.Companion| = Q|foo/bar/DataClassWithCompanion.Companion|
+        lval d3_1: <ERROR TYPE REF: Unresolved name: Companion> = Q|foo/bar/DataClassWithNamedCompanion|.<Unresolved name: Companion>#
+        lval d3_2: R|foo/bar/DataClassWithNamedCompanion.NamedCompanion| = Q|foo/bar/DataClassWithNamedCompanion.NamedCompanion|
+        lval r1: <ERROR TYPE REF: Unresolved name: Companion> = Q|foo/bar/RegularClassWithoutCompanion|.<Unresolved name: Companion>#
+        lval r2: R|foo/bar/RegularClassWithCompanion.Companion| = Q|foo/bar/RegularClassWithCompanion.Companion|
+        lval r3_1: <ERROR TYPE REF: Unresolved name: Companion> = Q|foo/bar/RegularClassWithNamedCompanion|.<Unresolved name: Companion>#
+        lval r3_2: R|foo/bar/RegularClassWithNamedCompanion.NamedCompanion| = Q|foo/bar/RegularClassWithNamedCompanion.NamedCompanion|
+        ^box String(OK)
+    }

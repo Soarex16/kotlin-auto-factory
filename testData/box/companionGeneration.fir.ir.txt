@@ -1,0 +1,730 @@
+FILE fqName:foo.bar fileName:/companionGeneration.kt
+  CLASS CLASS name:DataClassWithoutCompanion modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
+    annotations:
+      CachingFactory
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.DataClassWithoutCompanion
+    CONSTRUCTOR visibility:private <> (a:kotlin.Int, b:kotlin.String) returnType:foo.bar.DataClassWithoutCompanion [primary]
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:DataClassWithoutCompanion modality:FINAL visibility:public [data] superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: kotlin.Int declared in foo.bar.DataClassWithoutCompanion.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithoutCompanion) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithoutCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): kotlin.Int declared in foo.bar.DataClassWithoutCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.<get-a>' type=foo.bar.DataClassWithoutCompanion origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: kotlin.String declared in foo.bar.DataClassWithoutCompanion.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithoutCompanion) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithoutCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): kotlin.String declared in foo.bar.DataClassWithoutCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.<get-b>' type=foo.bar.DataClassWithoutCompanion origin=null
+    FUN name:component1 visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithoutCompanion) returnType:kotlin.Int [operator]
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithoutCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): kotlin.Int [operator] declared in foo.bar.DataClassWithoutCompanion'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.component1' type=foo.bar.DataClassWithoutCompanion origin=null
+    FUN name:component2 visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithoutCompanion) returnType:kotlin.String [operator]
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithoutCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component2 (): kotlin.String [operator] declared in foo.bar.DataClassWithoutCompanion'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.component2' type=foo.bar.DataClassWithoutCompanion origin=null
+    FUN name:copy visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithoutCompanion, a:kotlin.Int, b:kotlin.String) returnType:foo.bar.DataClassWithoutCompanion
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithoutCompanion
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.copy' type=foo.bar.DataClassWithoutCompanion origin=null
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.copy' type=foo.bar.DataClassWithoutCompanion origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (a: kotlin.Int, b: kotlin.String): foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion'
+          CONSTRUCTOR_CALL 'private constructor <init> (a: kotlin.Int, b: kotlin.String) [primary] declared in foo.bar.DataClassWithoutCompanion' type=foo.bar.DataClassWithoutCompanion origin=null
+            a: GET_VAR 'a: kotlin.Int declared in foo.bar.DataClassWithoutCompanion.copy' type=kotlin.Int origin=null
+            b: GET_VAR 'b: kotlin.String declared in foo.bar.DataClassWithoutCompanion.copy' type=kotlin.String origin=null
+    CLASS GENERATED[CachingFactoryGeneratorKey] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.DataClassWithoutCompanion.Companion
+      CONSTRUCTOR GENERATED[CachingFactoryGeneratorKey] visibility:private <> () returnType:foo.bar.DataClassWithoutCompanion.Companion [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS GENERATED[CachingFactoryGeneratorKey] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]'
+      PROPERTY GENERATED[CachingFactoryGeneratorKey] name:cache visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:cache type:<root>.kotlin.collections.MutableMap visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-cache> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithoutCompanion.Companion) returnType:<root>.kotlin.collections.MutableMap
+          correspondingProperty: PROPERTY GENERATED[CachingFactoryGeneratorKey] name:cache visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithoutCompanion.Companion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-cache> (): <root>.kotlin.collections.MutableMap declared in foo.bar.DataClassWithoutCompanion.Companion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:cache type:<root>.kotlin.collections.MutableMap visibility:private [final]' type=<root>.kotlin.collections.MutableMap origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion.Companion declared in foo.bar.DataClassWithoutCompanion.Companion.<get-cache>' type=foo.bar.DataClassWithoutCompanion.Companion origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithoutCompanion, other:kotlin.Any?) returnType:kotlin.Boolean
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithoutCompanion
+      VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:other index:0 type:kotlin.Any?
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              arg0: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.equals' type=foo.bar.DataClassWithoutCompanion origin=null
+              arg1: GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithoutCompanion.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithoutCompanion'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=foo.bar.DataClassWithoutCompanion
+              GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithoutCompanion.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithoutCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_0 type:foo.bar.DataClassWithoutCompanion [val]
+          TYPE_OP type=foo.bar.DataClassWithoutCompanion origin=CAST typeOperand=foo.bar.DataClassWithoutCompanion
+            GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithoutCompanion.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.equals' type=foo.bar.DataClassWithoutCompanion origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR 'val tmp_0: foo.bar.DataClassWithoutCompanion [val] declared in foo.bar.DataClassWithoutCompanion.equals' type=foo.bar.DataClassWithoutCompanion origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithoutCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.equals' type=foo.bar.DataClassWithoutCompanion origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR 'val tmp_0: foo.bar.DataClassWithoutCompanion [val] declared in foo.bar.DataClassWithoutCompanion.equals' type=foo.bar.DataClassWithoutCompanion origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithoutCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithoutCompanion'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithoutCompanion) returnType:kotlin.Int
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithoutCompanion
+      BLOCK_BODY
+        VAR name:result type:kotlin.Int [var]
+          CALL 'public open fun hashCode (): kotlin.Int [fake_override] declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.hashCode' type=foo.bar.DataClassWithoutCompanion origin=null
+        SET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithoutCompanion.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: CALL 'public final fun times (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithoutCompanion.hashCode' type=kotlin.Int origin=null
+              other: CONST Int type=kotlin.Int value=31
+            other: CALL 'public open fun hashCode (): kotlin.Int [fake_override] declared in kotlin.String' type=kotlin.Int origin=null
+              $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.hashCode' type=foo.bar.DataClassWithoutCompanion origin=null
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in foo.bar.DataClassWithoutCompanion'
+          GET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithoutCompanion.hashCode' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithoutCompanion) returnType:kotlin.String
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithoutCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in foo.bar.DataClassWithoutCompanion'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="DataClassWithoutCompanion(a="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.toString' type=foo.bar.DataClassWithoutCompanion origin=null
+            CONST String type=kotlin.String value=", b="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithoutCompanion declared in foo.bar.DataClassWithoutCompanion.toString' type=foo.bar.DataClassWithoutCompanion origin=null
+            CONST String type=kotlin.String value=")"
+  CLASS CLASS name:DataClassWithCompanion modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
+    annotations:
+      CachingFactory
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.DataClassWithCompanion
+    CONSTRUCTOR visibility:private <> (a:kotlin.Int, b:kotlin.String) returnType:foo.bar.DataClassWithCompanion [primary]
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:DataClassWithCompanion modality:FINAL visibility:public [data] superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: kotlin.Int declared in foo.bar.DataClassWithCompanion.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): kotlin.Int declared in foo.bar.DataClassWithCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.<get-a>' type=foo.bar.DataClassWithCompanion origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: kotlin.String declared in foo.bar.DataClassWithCompanion.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): kotlin.String declared in foo.bar.DataClassWithCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.<get-b>' type=foo.bar.DataClassWithCompanion origin=null
+    CLASS OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.DataClassWithCompanion.Companion
+      CONSTRUCTOR visibility:private <> () returnType:foo.bar.DataClassWithCompanion.Companion [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]'
+      PROPERTY name:x visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]
+          EXPRESSION_BODY
+            CONST Int type=kotlin.Int value=42
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-x> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion.Companion) returnType:kotlin.Int
+          correspondingProperty: PROPERTY name:x visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion.Companion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-x> (): kotlin.Int declared in foo.bar.DataClassWithCompanion.Companion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion.Companion declared in foo.bar.DataClassWithCompanion.Companion.<get-x>' type=foo.bar.DataClassWithCompanion.Companion origin=null
+      PROPERTY GENERATED[CachingFactoryGeneratorKey] name:cache visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:cache type:<root>.kotlin.collections.MutableMap visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-cache> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion.Companion) returnType:<root>.kotlin.collections.MutableMap
+          correspondingProperty: PROPERTY GENERATED[CachingFactoryGeneratorKey] name:cache visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion.Companion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-cache> (): <root>.kotlin.collections.MutableMap declared in foo.bar.DataClassWithCompanion.Companion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:cache type:<root>.kotlin.collections.MutableMap visibility:private [final]' type=<root>.kotlin.collections.MutableMap origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion.Companion declared in foo.bar.DataClassWithCompanion.Companion.<get-cache>' type=foo.bar.DataClassWithCompanion.Companion origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN name:component1 visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion) returnType:kotlin.Int [operator]
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): kotlin.Int [operator] declared in foo.bar.DataClassWithCompanion'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.component1' type=foo.bar.DataClassWithCompanion origin=null
+    FUN name:component2 visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion) returnType:kotlin.String [operator]
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component2 (): kotlin.String [operator] declared in foo.bar.DataClassWithCompanion'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.component2' type=foo.bar.DataClassWithCompanion origin=null
+    FUN name:copy visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithCompanion, a:kotlin.Int, b:kotlin.String) returnType:foo.bar.DataClassWithCompanion
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithCompanion
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.copy' type=foo.bar.DataClassWithCompanion origin=null
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.copy' type=foo.bar.DataClassWithCompanion origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (a: kotlin.Int, b: kotlin.String): foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion'
+          CONSTRUCTOR_CALL 'private constructor <init> (a: kotlin.Int, b: kotlin.String) [primary] declared in foo.bar.DataClassWithCompanion' type=foo.bar.DataClassWithCompanion origin=null
+            a: GET_VAR 'a: kotlin.Int declared in foo.bar.DataClassWithCompanion.copy' type=kotlin.Int origin=null
+            b: GET_VAR 'b: kotlin.String declared in foo.bar.DataClassWithCompanion.copy' type=kotlin.String origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithCompanion, other:kotlin.Any?) returnType:kotlin.Boolean
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithCompanion
+      VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:other index:0 type:kotlin.Any?
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              arg0: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.equals' type=foo.bar.DataClassWithCompanion origin=null
+              arg1: GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithCompanion.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithCompanion'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=foo.bar.DataClassWithCompanion
+              GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithCompanion.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_1 type:foo.bar.DataClassWithCompanion [val]
+          TYPE_OP type=foo.bar.DataClassWithCompanion origin=CAST typeOperand=foo.bar.DataClassWithCompanion
+            GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithCompanion.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.equals' type=foo.bar.DataClassWithCompanion origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR 'val tmp_1: foo.bar.DataClassWithCompanion [val] declared in foo.bar.DataClassWithCompanion.equals' type=foo.bar.DataClassWithCompanion origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.equals' type=foo.bar.DataClassWithCompanion origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR 'val tmp_1: foo.bar.DataClassWithCompanion [val] declared in foo.bar.DataClassWithCompanion.equals' type=foo.bar.DataClassWithCompanion origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithCompanion'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithCompanion) returnType:kotlin.Int
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithCompanion
+      BLOCK_BODY
+        VAR name:result type:kotlin.Int [var]
+          CALL 'public open fun hashCode (): kotlin.Int [fake_override] declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.hashCode' type=foo.bar.DataClassWithCompanion origin=null
+        SET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithCompanion.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: CALL 'public final fun times (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithCompanion.hashCode' type=kotlin.Int origin=null
+              other: CONST Int type=kotlin.Int value=31
+            other: CALL 'public open fun hashCode (): kotlin.Int [fake_override] declared in kotlin.String' type=kotlin.Int origin=null
+              $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.hashCode' type=foo.bar.DataClassWithCompanion origin=null
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in foo.bar.DataClassWithCompanion'
+          GET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithCompanion.hashCode' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithCompanion) returnType:kotlin.String
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in foo.bar.DataClassWithCompanion'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="DataClassWithCompanion(a="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.toString' type=foo.bar.DataClassWithCompanion origin=null
+            CONST String type=kotlin.String value=", b="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithCompanion declared in foo.bar.DataClassWithCompanion.toString' type=foo.bar.DataClassWithCompanion origin=null
+            CONST String type=kotlin.String value=")"
+  CLASS CLASS name:DataClassWithNamedCompanion modality:FINAL visibility:public [data] superTypes:[kotlin.Any]
+    annotations:
+      CachingFactory
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.DataClassWithNamedCompanion
+    CONSTRUCTOR visibility:private <> (a:kotlin.Int, b:kotlin.String) returnType:foo.bar.DataClassWithNamedCompanion [primary]
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:DataClassWithNamedCompanion modality:FINAL visibility:public [data] superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: kotlin.Int declared in foo.bar.DataClassWithNamedCompanion.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): kotlin.Int declared in foo.bar.DataClassWithNamedCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.<get-a>' type=foo.bar.DataClassWithNamedCompanion origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: kotlin.String declared in foo.bar.DataClassWithNamedCompanion.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): kotlin.String declared in foo.bar.DataClassWithNamedCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.<get-b>' type=foo.bar.DataClassWithNamedCompanion origin=null
+    CLASS OBJECT name:NamedCompanion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.DataClassWithNamedCompanion.NamedCompanion
+      CONSTRUCTOR visibility:private <> () returnType:foo.bar.DataClassWithNamedCompanion.NamedCompanion [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS OBJECT name:NamedCompanion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]'
+      PROPERTY name:x visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]
+          EXPRESSION_BODY
+            CONST Int type=kotlin.Int value=42
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-x> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion.NamedCompanion) returnType:kotlin.Int
+          correspondingProperty: PROPERTY name:x visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion.NamedCompanion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-x> (): kotlin.Int declared in foo.bar.DataClassWithNamedCompanion.NamedCompanion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion.NamedCompanion declared in foo.bar.DataClassWithNamedCompanion.NamedCompanion.<get-x>' type=foo.bar.DataClassWithNamedCompanion.NamedCompanion origin=null
+      PROPERTY GENERATED[CachingFactoryGeneratorKey] name:cache visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:cache type:<root>.kotlin.collections.MutableMap visibility:private [final]
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-cache> visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion.NamedCompanion) returnType:<root>.kotlin.collections.MutableMap
+          correspondingProperty: PROPERTY GENERATED[CachingFactoryGeneratorKey] name:cache visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion.NamedCompanion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-cache> (): <root>.kotlin.collections.MutableMap declared in foo.bar.DataClassWithNamedCompanion.NamedCompanion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:cache type:<root>.kotlin.collections.MutableMap visibility:private [final]' type=<root>.kotlin.collections.MutableMap origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion.NamedCompanion declared in foo.bar.DataClassWithNamedCompanion.NamedCompanion.<get-cache>' type=foo.bar.DataClassWithNamedCompanion.NamedCompanion origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN name:component1 visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion) returnType:kotlin.Int [operator]
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component1 (): kotlin.Int [operator] declared in foo.bar.DataClassWithNamedCompanion'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.component1' type=foo.bar.DataClassWithNamedCompanion origin=null
+    FUN name:component2 visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion) returnType:kotlin.String [operator]
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun component2 (): kotlin.String [operator] declared in foo.bar.DataClassWithNamedCompanion'
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.component2' type=foo.bar.DataClassWithNamedCompanion origin=null
+    FUN name:copy visibility:public modality:FINAL <> ($this:foo.bar.DataClassWithNamedCompanion, a:kotlin.Int, b:kotlin.String) returnType:foo.bar.DataClassWithNamedCompanion
+      $this: VALUE_PARAMETER name:<this> type:foo.bar.DataClassWithNamedCompanion
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.copy' type=foo.bar.DataClassWithNamedCompanion origin=null
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+        EXPRESSION_BODY
+          GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+            receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.copy' type=foo.bar.DataClassWithNamedCompanion origin=null
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public final fun copy (a: kotlin.Int, b: kotlin.String): foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion'
+          CONSTRUCTOR_CALL 'private constructor <init> (a: kotlin.Int, b: kotlin.String) [primary] declared in foo.bar.DataClassWithNamedCompanion' type=foo.bar.DataClassWithNamedCompanion origin=null
+            a: GET_VAR 'a: kotlin.Int declared in foo.bar.DataClassWithNamedCompanion.copy' type=kotlin.Int origin=null
+            b: GET_VAR 'b: kotlin.String declared in foo.bar.DataClassWithNamedCompanion.copy' type=kotlin.String origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:equals visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithNamedCompanion, other:kotlin.Any?) returnType:kotlin.Boolean
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithNamedCompanion
+      VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:other index:0 type:kotlin.Any?
+      BLOCK_BODY
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun EQEQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EQEQEQ
+              arg0: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.equals' type=foo.bar.DataClassWithNamedCompanion origin=null
+              arg1: GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithNamedCompanion.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithNamedCompanion'
+              CONST Boolean type=kotlin.Boolean value=true
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: TYPE_OP type=kotlin.Boolean origin=NOT_INSTANCEOF typeOperand=foo.bar.DataClassWithNamedCompanion
+              GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithNamedCompanion.equals' type=kotlin.Any? origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithNamedCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        VAR IR_TEMPORARY_VARIABLE name:tmp_2 type:foo.bar.DataClassWithNamedCompanion [val]
+          TYPE_OP type=foo.bar.DataClassWithNamedCompanion origin=CAST typeOperand=foo.bar.DataClassWithNamedCompanion
+            GET_VAR 'other: kotlin.Any? declared in foo.bar.DataClassWithNamedCompanion.equals' type=kotlin.Any? origin=null
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.equals' type=foo.bar.DataClassWithNamedCompanion origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                  receiver: GET_VAR 'val tmp_2: foo.bar.DataClassWithNamedCompanion [val] declared in foo.bar.DataClassWithNamedCompanion.equals' type=foo.bar.DataClassWithNamedCompanion origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithNamedCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        WHEN type=kotlin.Unit origin=null
+          BRANCH
+            if: CALL 'public final fun not (): kotlin.Boolean [operator] declared in kotlin.Boolean' type=kotlin.Boolean origin=EXCLEQ
+              $this: CALL 'public final fun EQEQ (arg0: kotlin.Any?, arg1: kotlin.Any?): kotlin.Boolean declared in kotlin.internal.ir' type=kotlin.Boolean origin=EXCLEQ
+                arg0: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.equals' type=foo.bar.DataClassWithNamedCompanion origin=null
+                arg1: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                  receiver: GET_VAR 'val tmp_2: foo.bar.DataClassWithNamedCompanion [val] declared in foo.bar.DataClassWithNamedCompanion.equals' type=foo.bar.DataClassWithNamedCompanion origin=null
+            then: RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithNamedCompanion'
+              CONST Boolean type=kotlin.Boolean value=false
+        RETURN type=kotlin.Nothing from='public open fun equals (other: kotlin.Any?): kotlin.Boolean declared in foo.bar.DataClassWithNamedCompanion'
+          CONST Boolean type=kotlin.Boolean value=true
+    FUN GENERATED_DATA_CLASS_MEMBER name:hashCode visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithNamedCompanion) returnType:kotlin.Int
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithNamedCompanion
+      BLOCK_BODY
+        VAR name:result type:kotlin.Int [var]
+          CALL 'public open fun hashCode (): kotlin.Int [fake_override] declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.hashCode' type=foo.bar.DataClassWithNamedCompanion origin=null
+        SET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithNamedCompanion.hashCode' type=kotlin.Unit origin=EQ
+          CALL 'public final fun plus (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+            $this: CALL 'public final fun times (other: kotlin.Int): kotlin.Int [operator] declared in kotlin.Int' type=kotlin.Int origin=null
+              $this: GET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithNamedCompanion.hashCode' type=kotlin.Int origin=null
+              other: CONST Int type=kotlin.Int value=31
+            other: CALL 'public open fun hashCode (): kotlin.Int [fake_override] declared in kotlin.String' type=kotlin.Int origin=null
+              $this: GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+                receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.hashCode' type=foo.bar.DataClassWithNamedCompanion origin=null
+        RETURN type=kotlin.Nothing from='public open fun hashCode (): kotlin.Int declared in foo.bar.DataClassWithNamedCompanion'
+          GET_VAR 'var result: kotlin.Int [var] declared in foo.bar.DataClassWithNamedCompanion.hashCode' type=kotlin.Int origin=null
+    FUN GENERATED_DATA_CLASS_MEMBER name:toString visibility:public modality:OPEN <> ($this:foo.bar.DataClassWithNamedCompanion) returnType:kotlin.String
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER GENERATED_DATA_CLASS_MEMBER name:<this> type:foo.bar.DataClassWithNamedCompanion
+      BLOCK_BODY
+        RETURN type=kotlin.Nothing from='public open fun toString (): kotlin.String declared in foo.bar.DataClassWithNamedCompanion'
+          STRING_CONCATENATION type=kotlin.String
+            CONST String type=kotlin.String value="DataClassWithNamedCompanion(a="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.toString' type=foo.bar.DataClassWithNamedCompanion origin=null
+            CONST String type=kotlin.String value=", b="
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.DataClassWithNamedCompanion declared in foo.bar.DataClassWithNamedCompanion.toString' type=foo.bar.DataClassWithNamedCompanion origin=null
+            CONST String type=kotlin.String value=")"
+  CLASS CLASS name:RegularClassWithoutCompanion modality:FINAL visibility:public superTypes:[kotlin.Any]
+    annotations:
+      CachingFactory
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.RegularClassWithoutCompanion
+    CONSTRUCTOR visibility:public <> (a:kotlin.Int, b:kotlin.String) returnType:foo.bar.RegularClassWithoutCompanion [primary]
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:RegularClassWithoutCompanion modality:FINAL visibility:public superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: kotlin.Int declared in foo.bar.RegularClassWithoutCompanion.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithoutCompanion) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithoutCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): kotlin.Int declared in foo.bar.RegularClassWithoutCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.RegularClassWithoutCompanion declared in foo.bar.RegularClassWithoutCompanion.<get-a>' type=foo.bar.RegularClassWithoutCompanion origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: kotlin.String declared in foo.bar.RegularClassWithoutCompanion.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithoutCompanion) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithoutCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): kotlin.String declared in foo.bar.RegularClassWithoutCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.RegularClassWithoutCompanion declared in foo.bar.RegularClassWithoutCompanion.<get-b>' type=foo.bar.RegularClassWithoutCompanion origin=null
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+  CLASS CLASS name:RegularClassWithCompanion modality:FINAL visibility:public superTypes:[kotlin.Any]
+    annotations:
+      CachingFactory
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.RegularClassWithCompanion
+    CONSTRUCTOR visibility:public <> (a:kotlin.Int, b:kotlin.String) returnType:foo.bar.RegularClassWithCompanion [primary]
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:RegularClassWithCompanion modality:FINAL visibility:public superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: kotlin.Int declared in foo.bar.RegularClassWithCompanion.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithCompanion) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): kotlin.Int declared in foo.bar.RegularClassWithCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.RegularClassWithCompanion declared in foo.bar.RegularClassWithCompanion.<get-a>' type=foo.bar.RegularClassWithCompanion origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: kotlin.String declared in foo.bar.RegularClassWithCompanion.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithCompanion) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): kotlin.String declared in foo.bar.RegularClassWithCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.RegularClassWithCompanion declared in foo.bar.RegularClassWithCompanion.<get-b>' type=foo.bar.RegularClassWithCompanion origin=null
+    CLASS OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.RegularClassWithCompanion.Companion
+      CONSTRUCTOR visibility:private <> () returnType:foo.bar.RegularClassWithCompanion.Companion [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]'
+      PROPERTY name:x visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]
+          EXPRESSION_BODY
+            CONST Int type=kotlin.Int value=42
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-x> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithCompanion.Companion) returnType:kotlin.Int
+          correspondingProperty: PROPERTY name:x visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithCompanion.Companion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-x> (): kotlin.Int declared in foo.bar.RegularClassWithCompanion.Companion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: foo.bar.RegularClassWithCompanion.Companion declared in foo.bar.RegularClassWithCompanion.Companion.<get-x>' type=foo.bar.RegularClassWithCompanion.Companion origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+  CLASS CLASS name:RegularClassWithNamedCompanion modality:FINAL visibility:public superTypes:[kotlin.Any]
+    annotations:
+      CachingFactory
+    $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.RegularClassWithNamedCompanion
+    CONSTRUCTOR visibility:public <> (a:kotlin.Int, b:kotlin.String) returnType:foo.bar.RegularClassWithNamedCompanion [primary]
+      VALUE_PARAMETER name:a index:0 type:kotlin.Int
+      VALUE_PARAMETER name:b index:1 type:kotlin.String
+      BLOCK_BODY
+        DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+        INSTANCE_INITIALIZER_CALL classDescriptor='CLASS CLASS name:RegularClassWithNamedCompanion modality:FINAL visibility:public superTypes:[kotlin.Any]'
+    PROPERTY name:a visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'a: kotlin.Int declared in foo.bar.RegularClassWithNamedCompanion.<init>' type=kotlin.Int origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-a> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithNamedCompanion) returnType:kotlin.Int
+        correspondingProperty: PROPERTY name:a visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithNamedCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-a> (): kotlin.Int declared in foo.bar.RegularClassWithNamedCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:a type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+              receiver: GET_VAR '<this>: foo.bar.RegularClassWithNamedCompanion declared in foo.bar.RegularClassWithNamedCompanion.<get-a>' type=foo.bar.RegularClassWithNamedCompanion origin=null
+    PROPERTY name:b visibility:public modality:FINAL [val]
+      FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]
+        EXPRESSION_BODY
+          GET_VAR 'b: kotlin.String declared in foo.bar.RegularClassWithNamedCompanion.<init>' type=kotlin.String origin=INITIALIZE_PROPERTY_FROM_PARAMETER
+      FUN DEFAULT_PROPERTY_ACCESSOR name:<get-b> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithNamedCompanion) returnType:kotlin.String
+        correspondingProperty: PROPERTY name:b visibility:public modality:FINAL [val]
+        $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithNamedCompanion
+        BLOCK_BODY
+          RETURN type=kotlin.Nothing from='public final fun <get-b> (): kotlin.String declared in foo.bar.RegularClassWithNamedCompanion'
+            GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:b type:kotlin.String visibility:private [final]' type=kotlin.String origin=null
+              receiver: GET_VAR '<this>: foo.bar.RegularClassWithNamedCompanion declared in foo.bar.RegularClassWithNamedCompanion.<get-b>' type=foo.bar.RegularClassWithNamedCompanion origin=null
+    CLASS OBJECT name:NamedCompanion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]
+      $this: VALUE_PARAMETER INSTANCE_RECEIVER name:<this> type:foo.bar.RegularClassWithNamedCompanion.NamedCompanion
+      CONSTRUCTOR visibility:private <> () returnType:foo.bar.RegularClassWithNamedCompanion.NamedCompanion [primary]
+        BLOCK_BODY
+          DELEGATING_CONSTRUCTOR_CALL 'public constructor <init> () [primary] declared in kotlin.Any'
+          INSTANCE_INITIALIZER_CALL classDescriptor='CLASS OBJECT name:NamedCompanion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]'
+      PROPERTY name:x visibility:public modality:FINAL [val]
+        FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]
+          EXPRESSION_BODY
+            CONST Int type=kotlin.Int value=42
+        FUN DEFAULT_PROPERTY_ACCESSOR name:<get-x> visibility:public modality:FINAL <> ($this:foo.bar.RegularClassWithNamedCompanion.NamedCompanion) returnType:kotlin.Int
+          correspondingProperty: PROPERTY name:x visibility:public modality:FINAL [val]
+          $this: VALUE_PARAMETER name:<this> type:foo.bar.RegularClassWithNamedCompanion.NamedCompanion
+          BLOCK_BODY
+            RETURN type=kotlin.Nothing from='public final fun <get-x> (): kotlin.Int declared in foo.bar.RegularClassWithNamedCompanion.NamedCompanion'
+              GET_FIELD 'FIELD PROPERTY_BACKING_FIELD name:x type:kotlin.Int visibility:private [final]' type=kotlin.Int origin=null
+                receiver: GET_VAR '<this>: foo.bar.RegularClassWithNamedCompanion.NamedCompanion declared in foo.bar.RegularClassWithNamedCompanion.NamedCompanion.<get-x>' type=foo.bar.RegularClassWithNamedCompanion.NamedCompanion origin=null
+      FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+        overridden:
+          public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+        VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+      FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+        overridden:
+          public open fun hashCode (): kotlin.Int declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+        overridden:
+          public open fun toString (): kotlin.String declared in kotlin.Any
+        $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN FAKE_OVERRIDE name:equals visibility:public modality:OPEN <> ($this:kotlin.Any, other:kotlin.Any?) returnType:kotlin.Boolean [fake_override,operator]
+      overridden:
+        public open fun equals (other: kotlin.Any?): kotlin.Boolean [operator] declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+      VALUE_PARAMETER name:other index:0 type:kotlin.Any?
+    FUN FAKE_OVERRIDE name:hashCode visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.Int [fake_override]
+      overridden:
+        public open fun hashCode (): kotlin.Int declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+    FUN FAKE_OVERRIDE name:toString visibility:public modality:OPEN <> ($this:kotlin.Any) returnType:kotlin.String [fake_override]
+      overridden:
+        public open fun toString (): kotlin.String declared in kotlin.Any
+      $this: VALUE_PARAMETER name:<this> type:kotlin.Any
+  FUN name:box visibility:public modality:FINAL <> () returnType:kotlin.String
+    BLOCK_BODY
+      VAR name:d1 type:foo.bar.DataClassWithoutCompanion.Companion [val]
+        GET_OBJECT 'CLASS GENERATED[CachingFactoryGeneratorKey] OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=foo.bar.DataClassWithoutCompanion.Companion
+      VAR name:d2 type:foo.bar.DataClassWithCompanion.Companion [val]
+        GET_OBJECT 'CLASS OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=foo.bar.DataClassWithCompanion.Companion
+      VAR name:d3_1 type:IrErrorType(null) [val]
+        ERROR_CALL 'Unresolved reference: <Unresolved name: Companion>#' type=IrErrorType(null)
+      VAR name:d3_2 type:foo.bar.DataClassWithNamedCompanion.NamedCompanion [val]
+        GET_OBJECT 'CLASS OBJECT name:NamedCompanion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=foo.bar.DataClassWithNamedCompanion.NamedCompanion
+      VAR name:r1 type:IrErrorType(null) [val]
+        ERROR_CALL 'Unresolved reference: <Unresolved name: Companion>#' type=IrErrorType(null)
+      VAR name:r2 type:foo.bar.RegularClassWithCompanion.Companion [val]
+        GET_OBJECT 'CLASS OBJECT name:Companion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=foo.bar.RegularClassWithCompanion.Companion
+      VAR name:r3_1 type:IrErrorType(null) [val]
+        ERROR_CALL 'Unresolved reference: <Unresolved name: Companion>#' type=IrErrorType(null)
+      VAR name:r3_2 type:foo.bar.RegularClassWithNamedCompanion.NamedCompanion [val]
+        GET_OBJECT 'CLASS OBJECT name:NamedCompanion modality:FINAL visibility:public [companion] superTypes:[kotlin.Any]' type=foo.bar.RegularClassWithNamedCompanion.NamedCompanion
+      RETURN type=kotlin.Nothing from='public final fun box (): kotlin.String declared in foo.bar'
+        CONST String type=kotlin.String value="OK"

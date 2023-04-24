@@ -1,0 +1,325 @@
+FILE: constructorTransformer.kt
+    package foo.bar
+
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final data class DataClassWithAnnotation : R|kotlin/Any| {
+        private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAnnotation| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithAnnotation|.R|foo/bar/DataClassWithAnnotation.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithAnnotation|.R|foo/bar/DataClassWithAnnotation.b|): R|foo/bar/DataClassWithAnnotation|
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithAnnotation/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAnnotation>|
+                public get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithAnnotation/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAnnotation>|
+
+            public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAnnotation|
+
+            private constructor(): R|foo/bar/DataClassWithAnnotation.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
+                private constructor(): R|foo/bar/DataClassWithAnnotation.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    super<R|kotlin/Any|>()
+                }
+
+                public sealed data class __CachingFactoryGenerated__DataClassWithAnnotation_Constructor_877957221 : R|foo/bar/DataClassWithAnnotation.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    private constructor(): R|foo/bar/DataClassWithAnnotation.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.__CachingFactoryGenerated__DataClassWithAnnotation_Constructor_877957221| {
+                        super<R|foo/bar/DataClassWithAnnotation.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final data class DataClassWithAnnotationWithPublicAdditionalConstructor : R|kotlin/Any| {
+        private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        private constructor(n: R|kotlin/Int|): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor| {
+            this<R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor|.R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor|.R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.b|): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor|
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor>|
+                public get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor>|
+
+            public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor|
+
+            public final fun create(n: R|kotlin/Int|): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor|
+
+            private constructor(): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
+                private constructor(): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    super<R|kotlin/Any|>()
+                }
+
+                public sealed data class __CachingFactoryGenerated__DataClassWithAnnotationWithPublicAdditionalConstructor_Constructor_1786762590 : R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    private constructor(): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.__CachingFactoryGenerated__DataClassWithAnnotationWithPublicAdditionalConstructor_Constructor_1786762590| {
+                        super<R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
+                    }
+
+                }
+
+                public sealed data class __CachingFactoryGenerated__DataClassWithAnnotationWithPublicAdditionalConstructor_Constructor_1801830367 : R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    private constructor(): R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.__CachingFactoryGenerated__DataClassWithAnnotationWithPublicAdditionalConstructor_Constructor_1801830367| {
+                        super<R|foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final data class DataClassWithAnnotationWithPrivateAdditionalConstructor : R|kotlin/Any| {
+        private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        private constructor(n: R|kotlin/Int|): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor| {
+            this<R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor|.R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor|.R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.b|): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor|
+
+        public final companion object Companion : R|kotlin/Any| {
+            public final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor>|
+                public get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor>|
+
+            public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor|
+
+            private constructor(): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
+                private constructor(): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    super<R|kotlin/Any|>()
+                }
+
+                public sealed data class __CachingFactoryGenerated__DataClassWithAnnotationWithPrivateAdditionalConstructor_Constructor_1058756441 : R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    private constructor(): R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.__CachingFactoryGenerated__DataClassWithAnnotationWithPrivateAdditionalConstructor_Constructor_1058756441| {
+                        super<R|foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    public final data class DataClassWithoutAnnotation : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutAnnotation| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithoutAnnotation|.R|foo/bar/DataClassWithoutAnnotation.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithoutAnnotation|.R|foo/bar/DataClassWithoutAnnotation.b|): R|foo/bar/DataClassWithoutAnnotation|
+
+    }
+    public final data class DataClassWithoutAnnotationWithPublicAdditionalConstructor : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public constructor(n: R|kotlin/Int|): R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor| {
+            this<R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor|.R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor|.R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor.b|): R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor|
+
+    }
+    public final data class DataClassWithoutAnnotationWithPrivateAdditionalConstructor : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        private constructor(n: R|kotlin/Int|): R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor| {
+            this<R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor|.R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor|.R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor.b|): R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor|
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final class RegularClassWithAnnotation : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithAnnotation| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final class RegularClassWithAnnotationWithPublicAdditionalConstructor : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public constructor(n: R|kotlin/Int|): R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor| {
+            this<R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+    }
+    @R|com/soarex/autofactory/annotation/CachingFactory|() public final class RegularClassWithAnnotationWithPrivateAdditionalConstructor : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        private constructor(n: R|kotlin/Int|): R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor| {
+            this<R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+    }
+    public final class RegularClassWithoutAnnotation : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithoutAnnotation| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+    }
+    public final class RegularClassWithoutAnnotationWithPublicAdditionalConstructor : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public constructor(n: R|kotlin/Int|): R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor| {
+            this<R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+    }
+    public final class RegularClassWithoutAnnotationWithPrivateAdditionalConstructor : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        private constructor(n: R|kotlin/Int|): R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor| {
+            this<R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor|>(R|<local>/n|, R|<local>/n|.R|kotlin/Int.toString|())
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval d1: R|foo/bar/DataClassWithAnnotation| = R|foo/bar/DataClassWithAnnotation.DataClassWithAnnotation<HIDDEN: foo/bar/DataClassWithAnnotation.DataClassWithAnnotation is invisible>#|(Int(1), String(1))
+        lval d2_1: <ERROR TYPE REF: Ambiguity: DataClassWithAnnotationWithPublicAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor]> = <Ambiguity: DataClassWithAnnotationWithPublicAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor]>#(Int(1), String(1))
+        lval d2_2: <ERROR TYPE REF: Ambiguity: DataClassWithAnnotationWithPublicAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor]> = <Ambiguity: DataClassWithAnnotationWithPublicAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPublicAdditionalConstructor.DataClassWithAnnotationWithPublicAdditionalConstructor]>#(Int(1))
+        lval d3_1: <ERROR TYPE REF: Ambiguity: DataClassWithAnnotationWithPrivateAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor]> = <Ambiguity: DataClassWithAnnotationWithPrivateAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor]>#(Int(1), String(1))
+        lval d3_2: <ERROR TYPE REF: Ambiguity: DataClassWithAnnotationWithPrivateAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor]> = <Ambiguity: DataClassWithAnnotationWithPrivateAdditionalConstructor, [foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor, foo/bar/DataClassWithAnnotationWithPrivateAdditionalConstructor.DataClassWithAnnotationWithPrivateAdditionalConstructor]>#(Int(1))
+        lval d4: R|foo/bar/DataClassWithoutAnnotation| = R|foo/bar/DataClassWithoutAnnotation.DataClassWithoutAnnotation|(Int(1), String(1))
+        lval d5_1: R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor| = R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor.DataClassWithoutAnnotationWithPublicAdditionalConstructor|(Int(1), String(1))
+        lval d5_2: R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor| = R|foo/bar/DataClassWithoutAnnotationWithPublicAdditionalConstructor.DataClassWithoutAnnotationWithPublicAdditionalConstructor|(Int(1))
+        lval d6_1: R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor| = R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor.DataClassWithoutAnnotationWithPrivateAdditionalConstructor|(Int(1), String(1))
+        lval d6_2: R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor| = R|foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor.DataClassWithoutAnnotationWithPrivateAdditionalConstructor<HIDDEN: foo/bar/DataClassWithoutAnnotationWithPrivateAdditionalConstructor.DataClassWithoutAnnotationWithPrivateAdditionalConstructor is invisible>#|(Int(1))
+        lvar r1: R|foo/bar/RegularClassWithAnnotation| = R|foo/bar/RegularClassWithAnnotation.RegularClassWithAnnotation|(Int(1), String(1))
+        lvar r2_1: R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor| = R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor.RegularClassWithAnnotationWithPublicAdditionalConstructor|(Int(1), String(1))
+        lvar r2_2: R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor| = R|foo/bar/RegularClassWithAnnotationWithPublicAdditionalConstructor.RegularClassWithAnnotationWithPublicAdditionalConstructor|(Int(1))
+        lvar r3_1: R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor| = R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor.RegularClassWithAnnotationWithPrivateAdditionalConstructor|(Int(1), String(1))
+        lvar r3_2: R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor| = R|foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor.RegularClassWithAnnotationWithPrivateAdditionalConstructor<HIDDEN: foo/bar/RegularClassWithAnnotationWithPrivateAdditionalConstructor.RegularClassWithAnnotationWithPrivateAdditionalConstructor is invisible>#|(Int(1))
+        lvar r4: R|foo/bar/RegularClassWithoutAnnotation| = R|foo/bar/RegularClassWithoutAnnotation.RegularClassWithoutAnnotation|(Int(1), String(1))
+        lvar r5_1: R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor| = R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor.RegularClassWithoutAnnotationWithPublicAdditionalConstructor|(Int(1), String(1))
+        lvar r5_2: R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor| = R|foo/bar/RegularClassWithoutAnnotationWithPublicAdditionalConstructor.RegularClassWithoutAnnotationWithPublicAdditionalConstructor|(Int(1))
+        lvar r6_1: R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor| = R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor.RegularClassWithoutAnnotationWithPrivateAdditionalConstructor|(Int(1), String(1))
+        lvar r6_2: R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor| = R|foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor.RegularClassWithoutAnnotationWithPrivateAdditionalConstructor<HIDDEN: foo/bar/RegularClassWithoutAnnotationWithPrivateAdditionalConstructor.RegularClassWithoutAnnotationWithPrivateAdditionalConstructor is invisible>#|(Int(1))
+        ^box String(OK)
+    }

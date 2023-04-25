@@ -21,7 +21,7 @@ class CachingFactoryConstructorStatusTransformer(session: FirSession) : FirStatu
         containingClass: FirClassLikeSymbol<*>?,
         isLocal: Boolean
     ): FirDeclarationStatus {
-        session.cachingFactoryInfoProvider.markConstructor(constructor)
+        session.cachingFactoryInfoProvider.markConstructorAsTransformed(constructor.symbol)
         return status.transform(visibility = Visibilities.Private)
     }
 

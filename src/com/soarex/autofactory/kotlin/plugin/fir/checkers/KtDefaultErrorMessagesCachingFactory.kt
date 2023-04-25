@@ -12,7 +12,7 @@ object KtDefaultErrorMessagesCachingFactory : BaseDiagnosticRendererFactory() {
 
         put(
             PluginErrors.PRIMARY_CONSTRUCTOR_PARAMETER_SHOULD_BE_VAL,
-            "Cached object primary constructor parameter should be 'val' because because they are part of the key in the cache",
+            "Cached object primary constructor parameter should be 'val' because they are part of the factory cache key",
         )
 
         put(

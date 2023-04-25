@@ -22,14 +22,20 @@ public class DiagnosticTestGenerated extends AbstractDiagnosticTest {
     }
 
     @Test
-    @TestMetadata("anotherDiagnosticTest.kt")
-    public void testAnotherDiagnosticTest() throws Exception {
-        runTest("testData/diagnostics/anotherDiagnosticTest.kt");
+    @TestMetadata("primaryConstructorParametersAreVal.kt")
+    public void testPrimaryConstructorParametersAreVal() throws Exception {
+        runTest("testData/diagnostics/primaryConstructorParametersAreVal.kt");
     }
 
     @Test
-    @TestMetadata("simple.kt")
-    public void testSimple() throws Exception {
-        runTest("testData/diagnostics/simple.kt");
+    @TestMetadata("suitableConstructors.kt")
+    public void testSuitableConstructors() throws Exception {
+        runTest("testData/diagnostics/suitableConstructors.kt");
+    }
+
+    @Test
+    @TestMetadata("uselessIgnoreAnnotation.kt")
+    public void testUselessIgnoreAnnotation() throws Exception {
+        runTest("testData/diagnostics/uselessIgnoreAnnotation.kt");
     }
 }

@@ -6,7 +6,6 @@ import org.jetbrains.kotlin.fir.caches.FirCache
 import org.jetbrains.kotlin.fir.caches.createCache
 import org.jetbrains.kotlin.fir.caches.firCachesFactory
 import org.jetbrains.kotlin.fir.caches.getValue
-import org.jetbrains.kotlin.fir.declarations.FirConstructor
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationPredicateRegistrar
 import org.jetbrains.kotlin.fir.extensions.FirExtensionSessionComponent
 import org.jetbrains.kotlin.fir.extensions.predicateBasedProvider
@@ -55,9 +54,14 @@ class CachingFactoryInfoProvider(session: FirSession) : FirExtensionSessionCompo
     private val transformedConstructorsCache: FirCache<ClassId, MutableSet<FirConstructorSymbol>, Nothing?> =
         session.firCachesFactory.createCache { _ -> mutableSetOf() }
 
-    fun markConstructor(constructor: FirConstructor) {
-        val classId = constructor.symbol.resolvedReturnType.classId!!
-        transformedConstructorsCache.getValue(classId).add(constructor.symbol)
+    fun markConstructorAsTransformed(constructorSymbol: FirConstructorSymbol) {
+        val classId = constructorSymbol.resolvedReturnType.classId!!
+        transformedConstructorsCache.getValue(classId).add(constructorSymbol)
+    }
+
+    fun isConstructorMarkedAsTransformed(constructorSymbol: FirConstructorSymbol): Boolean {
+        val classId = constructorSymbol.resolvedReturnType.classId!!
+        return constructorSymbol in transformedConstructorsCache.getValue(classId)
     }
 
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {

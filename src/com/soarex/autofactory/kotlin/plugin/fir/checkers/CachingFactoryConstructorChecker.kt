@@ -6,6 +6,7 @@ import org.jetbrains.kotlin.diagnostics.DiagnosticReporter
 import org.jetbrains.kotlin.diagnostics.reportOn
 import org.jetbrains.kotlin.fir.analysis.checkers.context.CheckerContext
 import org.jetbrains.kotlin.fir.analysis.checkers.declaration.FirConstructorChecker
+import org.jetbrains.kotlin.fir.correspondingProperty
 import org.jetbrains.kotlin.fir.declarations.FirConstructor
 import org.jetbrains.kotlin.fir.declarations.getAnnotationByClassId
 import org.jetbrains.kotlin.fir.declarations.utils.visibility
@@ -21,9 +22,10 @@ object CachingFactoryConstructorChecker : FirConstructorChecker() {
         reporter: DiagnosticReporter,
         context: CheckerContext
     ) {
-        if (declaration.isPrimary) {
+        if (declaration.isPrimary && declaration.symbol.suitableForCachingFactory(context.session)) {
             for (valueParameter in declaration.valueParameters) {
-                if (valueParameter.isVar) {
+                val correspondingProperty = valueParameter.correspondingProperty ?: return
+                if (correspondingProperty.isVar) {
                     reporter.reportOn(
                         valueParameter.source,
                         PluginErrors.PRIMARY_CONSTRUCTOR_PARAMETER_SHOULD_BE_VAL,
@@ -39,13 +41,15 @@ object CachingFactoryConstructorChecker : FirConstructorChecker() {
         reporter: DiagnosticReporter
     ) {
         if (Visibilities.isPrivate(declaration.visibility)) {
-            val ignoreConstructorAnnotationSource =
-                declaration.getAnnotationByClassId(IgnoreInCachingFactoryClassId, context.session)?.source
-            reporter.reportOn(
-                ignoreConstructorAnnotationSource,
-                PluginErrors.USELESS_IGNORE_ANNOTATION,
-                context
-            )
+            val ignoreConstructorAnnotation =
+                declaration.getAnnotationByClassId(IgnoreInCachingFactoryClassId, context.session)
+            if (ignoreConstructorAnnotation != null) {
+                reporter.reportOn(
+                    ignoreConstructorAnnotation.source,
+                    PluginErrors.USELESS_IGNORE_ANNOTATION,
+                    context
+                )
+            }
         }
     }
 }

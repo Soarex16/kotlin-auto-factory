@@ -33,8 +33,14 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithoutCompanion_constructor_2100853505 : R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithoutCompanion_constructor_2100853505| {
+                public sealed data class DataClassWithoutCompanion_constructor_2100853505 : R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|kotlin/String|
+                        public get(): R|kotlin/String|
+
+                    public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithoutCompanion_constructor_2100853505| {
                         super<R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -74,8 +80,14 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithCompanion_constructor_2100853505 : R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithCompanion_constructor_2100853505| {
+                public sealed data class DataClassWithCompanion_constructor_2100853505 : R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|kotlin/String|
+                        public get(): R|kotlin/String|
+
+                    public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithCompanion_constructor_2100853505| {
                         super<R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -121,8 +133,14 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithNamedCompanion_constructor_2100853505 : R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithNamedCompanion_constructor_2100853505| {
+                public sealed data class DataClassWithNamedCompanion_constructor_2100853505 : R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|kotlin/String|
+                        public get(): R|kotlin/String|
+
+                    public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithNamedCompanion_constructor_2100853505| {
                         super<R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -177,15 +195,24 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithAdditionalConstructor_constructor_2100853505| {
+                public sealed data class DataClassWithAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|kotlin/String|
+                        public get(): R|kotlin/String|
+
+                    public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithAdditionalConstructor_constructor_2100853505| {
                         super<R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
                 }
 
-                private sealed data class DataClassWithAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithAdditionalConstructor_constructor_14233025| {
+                public sealed data class DataClassWithAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public constructor(a: R|kotlin/Int|): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithAdditionalConstructor_constructor_14233025| {
                         super<R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -232,8 +259,14 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithIgnoredConstructor_constructor_2100853505 : R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithIgnoredConstructor_constructor_2100853505| {
+                public sealed data class DataClassWithIgnoredConstructor_constructor_2100853505 : R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|kotlin/String|
+                        public get(): R|kotlin/String|
+
+                    public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithIgnoredConstructor_constructor_2100853505| {
                         super<R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -286,15 +319,24 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505| {
+                public sealed data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|kotlin/String|
+                        public get(): R|kotlin/String|
+
+                    public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505| {
                         super<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
                 }
 
-                private sealed data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor(a: R|kotlin/Int|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025| {
+                public sealed data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public constructor(a: R|kotlin/Int|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025| {
                         super<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -342,8 +384,17 @@ FILE: companionMembersGeneration.kt
                     super<R|kotlin/Any|>()
                 }
 
-                private sealed data class DataClassWithTypeParams_constructor_3739009089<K : R|kotlin/Comparable<K>|, V> : R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    private constructor<K : R|kotlin/Comparable<K>|, V>(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithTypeParams_constructor_3739009089<K, V>| {
+                public sealed data class DataClassWithTypeParams_constructor_3739009089<K : R|kotlin/Comparable<K>|, V> : R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int|
+                        public get(): R|kotlin/Int|
+
+                    public final val b: R|K|
+                        public get(): R|K|
+
+                    public final val c: R|V|
+                        public get(): R|V|
+
+                    public constructor<K : R|kotlin/Comparable<K>|, V>(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithTypeParams_constructor_3739009089<K, V>| {
                         super<R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 

@@ -54,7 +54,6 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                         ?.get(name)!!
                     createNestedClass(owner, name, Key, ClassKind.CLASS) {
                         modality = Modality.SEALED
-                        visibility = Visibilities.Private
                         status {
                             isData = true
                         }
@@ -100,7 +99,7 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
             val constructor = if (associatedConstructor != null) {
                 createConstructor(context.owner, Key, isPrimary = true, generateDelegatedNoArgConstructorCall = true) {
                     for (ctorValueParam in associatedConstructor.valueParameterSymbols) {
-                        // TODO: default initializer & type params
+                        // TODO: default initializer
                         valueParameter(
                             ctorValueParam.name,
                             ctorValueParam.resolvedReturnType,
@@ -108,8 +107,6 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                             hasDefaultValue = ctorValueParam.hasDefaultValue
                         )
                     }
-
-                    visibility = Visibilities.Private
                 }
             } else {
                 createDefaultPrivateConstructor(context.owner, Key)
@@ -171,8 +168,28 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
         require(context != null)
 
         // TODO: data class constructor fields
-        // val sourceDataClassId = owner.classId.parentClassId!!
-        // val correspondingConstructor = session.cachingFactoryInfoProvider.constructorsToTransform(sourceDataClassId)!![name]!!// annotatedClassesConstructors[sourceDataClassId]!![name]!!
+        val sourceDataClassClassId = context
+            .owner.classId // ConstructorArgumentsKey descendent
+            .parentClassId // ConstructorArgumentsKey base class
+            ?.parentClassId // companion
+            ?.parentClassId // data class
+        val associatedSourceConstructor = session.cachingFactoryInfoProvider
+            .getAssociatedConstructors(sourceDataClassClassId)
+            ?.get(context.owner.name)
+        if (associatedSourceConstructor != null) {
+            val sourceValueParam = associatedSourceConstructor
+                .valueParameterSymbols
+                .first { it.name == callableId.callableName }
+            val property = createMemberProperty(
+                owner = context.owner,
+                key = Key,
+                name = callableId.callableName,
+                returnType = sourceValueParam.resolvedReturnType,
+                hasBackingField = true,
+                isVal = true
+            )
+            return listOf(property.symbol)
+        }
 
         if (callableId.callableName != Names.OBJECT_CACHE) return emptyList()
 
@@ -235,11 +252,11 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                     buildSet {
                         add(SpecialNames.INIT)
                         val sourceDataClassClassId = parentClassId.parentClassId?.parentClassId
-                        val correspondingConstructor = session.cachingFactoryInfoProvider
+                        val associatedConstructor = session.cachingFactoryInfoProvider
                             .getAssociatedConstructors(sourceDataClassClassId)?.get(classSymbol.name)
-                        if (correspondingConstructor != null) {
+                        if (associatedConstructor != null) {
                             // properties for generated ConstructorArgumentsKey
-                            for (valueParameter in correspondingConstructor.valueParameterSymbols) {
+                            for (valueParameter in associatedConstructor.valueParameterSymbols) {
                                 add(valueParameter.name)
                             }
                         }

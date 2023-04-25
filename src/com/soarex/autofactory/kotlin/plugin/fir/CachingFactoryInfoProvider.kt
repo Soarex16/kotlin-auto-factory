@@ -7,6 +7,7 @@ import org.jetbrains.kotlin.fir.caches.createCache
 import org.jetbrains.kotlin.fir.caches.firCachesFactory
 import org.jetbrains.kotlin.fir.caches.getValue
 import org.jetbrains.kotlin.fir.declarations.FirConstructor
+import org.jetbrains.kotlin.fir.extensions.FirDeclarationPredicateRegistrar
 import org.jetbrains.kotlin.fir.extensions.FirExtensionSessionComponent
 import org.jetbrains.kotlin.fir.extensions.predicateBasedProvider
 import org.jetbrains.kotlin.fir.symbols.impl.FirConstructorSymbol
@@ -16,48 +17,52 @@ import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.name.Name
 
 class CachingFactoryInfoProvider(session: FirSession) : FirExtensionSessionComponent(session) {
-    // TODO: учесть, что тут может не быть какого-то класса - это значит, что для него мы фабрику не генерируем
-    private val annotatedClassesConstructors: Map<ClassId, Map<Name, FirConstructorSymbol>> by session.firCachesFactory.createLazyValue {
+    /**
+     * Contains mapping from data class classId to another mapping which represents mapping from
+     * mangled constructor key class name -> associated constructor symbol
+     */
+    private val factoryCacheKeysToAssociatedSourceConstructors: Map<ClassId, Map<Name, FirConstructorSymbol>> by session.firCachesFactory.createLazyValue {
         session.predicateBasedProvider
             .getSymbolsByPredicate(CACHING_FACTORY_ANNOTATED_PREDICATE)
             .filterIsInstance<FirRegularClassSymbol>()
             .associateBy({ it.classId }) { classSymbol ->
+                val transformedConstructors = transformedConstructorsCache.getValue(classSymbol.classId)
+                val ignoredConstructors = explicitlyIgnoredConstructors[classSymbol.classId]
                 classSymbol.declarationSymbols
                     .filterIsInstance<FirConstructorSymbol>()
                     .filter { ctor ->
-                        ctor.rawStatus.visibility != Visibilities.Private || ctor in transformedConstructorsCache.getValue(
-                            classSymbol.classId
-                        )
+                        (ctor.rawStatus.visibility != Visibilities.Private || ctor in transformedConstructors) && (ignoredConstructors == null || ctor !in ignoredConstructors)
                     }
-                    .associateBy { ctor -> Name.identifier("${CachingFactoryGenerator.CACHING_FACTORY_NAMES_PREFIX}${ctor.name}_Constructor_${ctor.hashCode()}") }
+                    .associateBy { Names.createNameForConstructorCacheKey(it) }
             }
     }
 
-    private val transformedConstructorsCache: FirCache<ClassId, MutableSet<FirConstructorSymbol>, Nothing?> =
-        session.firCachesFactory.createCache { classId ->
-            mutableSetOf()
-            /*
-            session.predicateBasedProvider
-                .getSymbolsByPredicate(CACHING_FACTORY_ANNOTATED_PREDICATE)
-                .filterIsInstance<FirRegularClassSymbol>()
-                .associateBy({ it.classId }) {
-                    it.declarationSymbols
-                        .filterIsInstance<FirConstructorSymbol>()
-    //                    .filter { ctor -> ctor.rawStatus.visibility != Visibilities.Private }
-                        .associateBy { ctor -> Name.identifier("${CachingFactoryGenerator.CACHING_FACTORY_NAMES_PREFIX}${ctor.name}_Constructor_${ctor.hashCode()}") }
-                }
-            SerializationPackages.allPublicPackages.firstNotNullOfOrNull { packageName ->
-                session.symbolProvider.getClassLikeSymbolByClassId(ClassId(packageName, name)) as? FirClassSymbol<*>
-            } ?: throw IllegalArgumentException("Can't locate cass ${name.identifier}")*/
-        }
-
-    fun constructorsToTransform(classId: ClassId): Map<Name, FirConstructorSymbol>? {
-        return annotatedClassesConstructors[classId]
+    fun getAssociatedConstructors(classId: ClassId?): Map<Name, FirConstructorSymbol>? {
+        return factoryCacheKeysToAssociatedSourceConstructors[classId]
     }
+
+    private val explicitlyIgnoredConstructors: Map<ClassId, Set<FirConstructorSymbol>> by session.firCachesFactory.createLazyValue {
+        session.predicateBasedProvider
+            .getSymbolsByPredicate(IGNORE_IN_CACHING_FACTORY_ANNOTATED_PREDICATE)
+            .filterIsInstance<FirConstructorSymbol>()
+            .groupingBy { it.resolvedReturnType.classId!! }
+            .fold(
+                { _, _ -> mutableSetOf() },
+                { _, symbols, ctor -> symbols.apply { add(ctor) } }
+            )
+    }
+
+    private val transformedConstructorsCache: FirCache<ClassId, MutableSet<FirConstructorSymbol>, Nothing?> =
+        session.firCachesFactory.createCache { _ -> mutableSetOf() }
 
     fun markConstructor(constructor: FirConstructor) {
         val classId = constructor.symbol.resolvedReturnType.classId!!
         transformedConstructorsCache.getValue(classId).add(constructor.symbol)
+    }
+
+    override fun FirDeclarationPredicateRegistrar.registerPredicates() {
+        register(CACHING_FACTORY_ANNOTATED_PREDICATE)
+        register(IGNORE_IN_CACHING_FACTORY_ANNOTATED_PREDICATE)
     }
 }
 

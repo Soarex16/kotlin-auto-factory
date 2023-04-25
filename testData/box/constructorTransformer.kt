@@ -4,15 +4,15 @@ package foo.bar
 
 // Data classes
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithAnnotation(val a: Int, val b: String)
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithAnnotationWithPublicAdditionalConstructor(val a: Int, val b: String) {
     constructor(n: Int): this(n, n.toString())
 }
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithAnnotationWithPrivateAdditionalConstructor(val a: Int, val b: String) {
     private constructor(n: Int): this(n, n.toString())
 }
@@ -29,15 +29,15 @@ data class DataClassWithoutAnnotationWithPrivateAdditionalConstructor(val a: Int
 
 // Regular classes
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 class RegularClassWithAnnotation(val a: Int, val b: String)
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 class RegularClassWithAnnotationWithPublicAdditionalConstructor(val a: Int, val b: String) {
     constructor(n: Int): this(n, n.toString())
 }
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 class RegularClassWithAnnotationWithPrivateAdditionalConstructor(val a: Int, val b: String) {
     private constructor(n: Int): this(n, n.toString())
 }

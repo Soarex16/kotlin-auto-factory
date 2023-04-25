@@ -27,13 +27,15 @@ class CachingFactoryConstructorStatusTransformer(session: FirSession) : FirStatu
 
     override fun needTransformStatus(declaration: FirDeclaration): Boolean {
         if (declaration !is FirConstructor) return false
-        val classLikeSymbol = declaration.returnTypeRef.coneType.toRegularClassSymbol(session)!!
+        val declaringClass = declaration.returnTypeRef.coneType.toRegularClassSymbol(session)!!
         return declaration.status.visibility != Visibilities.Private
-                && classLikeSymbol.resolvedStatus.isData
-                && session.predicateBasedProvider.matches(CACHING_FACTORY_ANNOTATED_PREDICATE, classLikeSymbol)
+                && declaringClass.resolvedStatus.isData
+                && !session.predicateBasedProvider.matches(IGNORE_IN_CACHING_FACTORY_ANNOTATED_PREDICATE, declaration)
+                && session.predicateBasedProvider.matches(CACHING_FACTORY_ANNOTATED_PREDICATE, declaringClass)
     }
 
     override fun FirDeclarationPredicateRegistrar.registerPredicates() {
         register(CACHING_FACTORY_ANNOTATED_PREDICATE)
+        register(IGNORE_IN_CACHING_FACTORY_ANNOTATED_PREDICATE)
     }
 }

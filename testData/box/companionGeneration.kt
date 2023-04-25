@@ -2,34 +2,34 @@
 
 package foo.bar
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithoutCompanion(val a: Int, val b: String)
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithCompanion(val a: Int, val b: String) {
     companion object {
         val x = 42
     }
 }
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithNamedCompanion(val a: Int, val b: String) {
     companion object NamedCompanion {
         val x = 42
     }
 }
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 class RegularClassWithoutCompanion(val a: Int, val b: String)
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 class RegularClassWithCompanion(val a: Int, val b: String) {
     companion object {
         val x = 42
     }
 }
 
-@com.soarex.autofactory.annotation.CachingFactory
+@com.soarex.autofactory.annotations.CachingFactory
 class RegularClassWithNamedCompanion(val a: Int, val b: String) {
     companion object NamedCompanion {
         val x = 42

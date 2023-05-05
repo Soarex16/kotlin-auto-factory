@@ -35,8 +35,20 @@ public class BoxTestGenerated extends AbstractBoxTest {
     }
 
     @Test
+    @TestMetadata("companionMembersGenerationSimple.kt")
+    public void testCompanionMembersGenerationSimple() throws Exception {
+        runTest("testData/box/companionMembersGenerationSimple.kt");
+    }
+
+    @Test
     @TestMetadata("constructorTransformer.kt")
     public void testConstructorTransformer() throws Exception {
         runTest("testData/box/constructorTransformer.kt");
+    }
+
+    @Test
+    @TestMetadata("typeArgsTest.kt")
+    public void testTypeArgsTest() throws Exception {
+        runTest("testData/box/typeArgsTest.kt");
     }
 }

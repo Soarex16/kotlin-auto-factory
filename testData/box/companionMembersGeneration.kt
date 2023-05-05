@@ -1,6 +1,11 @@
-// IGNORED_____IGNORE_BACKEND: ANY
-
+// WITH_STDLIB
 package foo.bar
+
+data class DataClassWithoutAnnotation(val a: Int, val b: String) {
+    companion object {
+        val x = 100
+    }
+}
 
 @com.soarex.autofactory.annotations.CachingFactory
 data class DataClassWithoutCompanion(val a: Int, val b: String)
@@ -37,6 +42,38 @@ data class DataClassWithPublicAndPrivateAdditionalConstructor(val a: Int, val b:
 }
 
 @com.soarex.autofactory.annotations.CachingFactory
-data class DataClassWithTypeParams<K : Comparable<K>, V>(val a: Int, val b: K, val c: V)
+data class DataClassWithTypeParams<K : Number, V>(val a: Int, val b: K, val c: V)
 
-fun box(): String = "OK"
+fun <T> checkIsSame(factory: () -> T): Boolean = factory() === factory()
+
+fun <T> checkIsNotSame(factory: () -> T): Boolean = factory() !== factory()
+
+fun box(): String {
+    var i = 1
+    val testCases = listOf(
+        checkIsSame { DataClassWithoutCompanion.create(1, "foo") },
+        checkIsSame { DataClassWithCompanion.create(1, "foo") },
+        checkIsSame { DataClassWithNamedCompanion.create(1, "foo") },
+        checkIsSame { DataClassWithAdditionalConstructor.create(1, "foo") },
+        checkIsSame { DataClassWithIgnoredConstructor.create(1, "foo") },
+        checkIsSame { DataClassWithAdditionalConstructor.create(1) },
+        checkIsSame { DataClassWithPublicAndPrivateAdditionalConstructor.create(1, "foo") },
+        checkIsSame { DataClassWithPublicAndPrivateAdditionalConstructor.create(1) },
+        checkIsSame { DataClassWithTypeParams.create<Int, String>(1, 1, "1") },
+
+        checkIsNotSame { DataClassWithoutCompanion.create(i++, "foo") },
+        checkIsNotSame { DataClassWithCompanion.create(i++, "foo") },
+        checkIsNotSame { DataClassWithNamedCompanion.create(i++, "foo") },
+        checkIsNotSame { DataClassWithAdditionalConstructor.create(i++, "foo") },
+        checkIsNotSame { DataClassWithIgnoredConstructor.create(i++, "foo") },
+        checkIsNotSame { DataClassWithAdditionalConstructor.create(i++) },
+        checkIsNotSame { DataClassWithPublicAndPrivateAdditionalConstructor.create(i++, "foo") },
+        checkIsNotSame { DataClassWithPublicAndPrivateAdditionalConstructor.create(i++) },
+        checkIsNotSame { DataClassWithTypeParams.create<Int, String>(i++, 1, "1") },
+    )
+    return if (testCases.all { it }) {
+        "OK"
+    } else {
+        "FAIL"
+    }
+}

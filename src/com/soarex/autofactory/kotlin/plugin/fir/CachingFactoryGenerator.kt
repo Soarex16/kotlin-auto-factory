@@ -4,20 +4,39 @@ import org.jetbrains.kotlin.GeneratedDeclarationKey
 import org.jetbrains.kotlin.descriptors.ClassKind
 import org.jetbrains.kotlin.descriptors.Modality
 import org.jetbrains.kotlin.descriptors.Visibilities
+import org.jetbrains.kotlin.fir.FirElement
 import org.jetbrains.kotlin.fir.FirSession
-import org.jetbrains.kotlin.fir.declarations.FirDeclarationOrigin
+import org.jetbrains.kotlin.fir.declarations.*
 import org.jetbrains.kotlin.fir.declarations.utils.isCompanion
 import org.jetbrains.kotlin.fir.declarations.utils.isData
+import org.jetbrains.kotlin.fir.expressions.buildResolvedArgumentList
+import org.jetbrains.kotlin.fir.expressions.builder.buildFunctionCall
+import org.jetbrains.kotlin.fir.expressions.builder.buildPropertyAccessExpression
 import org.jetbrains.kotlin.fir.extensions.*
 import org.jetbrains.kotlin.fir.plugin.*
+import org.jetbrains.kotlin.fir.references.builder.buildPropertyFromParameterResolvedNamedReference
+import org.jetbrains.kotlin.fir.references.builder.buildResolvedNamedReference
 import org.jetbrains.kotlin.fir.resolve.defaultType
 import org.jetbrains.kotlin.fir.resolve.providers.symbolProvider
+import org.jetbrains.kotlin.fir.resolve.substitution.ConeSubstitutorByMap
+import org.jetbrains.kotlin.fir.scopes.impl.toConeType
+import org.jetbrains.kotlin.fir.symbols.SymbolInternals
 import org.jetbrains.kotlin.fir.symbols.impl.*
-import org.jetbrains.kotlin.name.CallableId
-import org.jetbrains.kotlin.name.ClassId
-import org.jetbrains.kotlin.name.Name
-import org.jetbrains.kotlin.name.SpecialNames
+import org.jetbrains.kotlin.fir.types.ConeTypeProjection
+import org.jetbrains.kotlin.fir.types.builder.buildResolvedTypeRef
+import org.jetbrains.kotlin.fir.types.builder.buildTypeProjectionWithVariance
+import org.jetbrains.kotlin.fir.types.coneType
+import org.jetbrains.kotlin.fir.types.toFirResolvedTypeRef
+import org.jetbrains.kotlin.fir.types.type
+import org.jetbrains.kotlin.fir.visitors.FirTransformer
+import org.jetbrains.kotlin.name.*
+import org.jetbrains.kotlin.types.Variance
 
+/**
+ * Note: we don't support default values for constructor value params
+ * Because in this case we need some kind of value parameter remapper,
+ * because AST for default value expression can reference other value parameters
+ */
 class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExtension(session) {
     override fun generateNestedClassLikeDeclaration(
         owner: FirClassSymbol<*>,
@@ -29,7 +48,12 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
             .getClassLikeSymbolByClassId(owner.classId) as? FirRegularClassSymbol ?: return null
         return when (name) {
             Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS -> {
-                createNestedClass(owner, Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS, Key, ClassKind.CLASS) {
+                createNestedClass(
+                    owner,
+                    Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS,
+                    Key.ConstructorKeyBaseClass,
+                    ClassKind.CLASS
+                ) {
                     modality = Modality.SEALED
                     visibility = Visibilities.Private
                 }.symbol
@@ -37,7 +61,7 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
 
             SpecialNames.DEFAULT_NAME_FOR_COMPANION_OBJECT -> {
                 if (owner.companionObjectSymbol == null) {
-                    createCompanionObject(owner, Key).symbol
+                    createCompanionObject(owner, Key.Companion).symbol
                 } else {
                     null
                 }
@@ -52,8 +76,8 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                     val associatedConstructor = session.cachingFactoryInfoProvider
                         .getAssociatedConstructors(sourceDataClassClassId)
                         ?.get(name)!!
-                    createNestedClass(owner, name, Key, ClassKind.CLASS) {
-                        modality = Modality.SEALED
+                    createNestedClass(owner, name, Key.ConstructorKey, ClassKind.CLASS) {
+                        modality = Modality.FINAL
                         status {
                             isData = true
                         }
@@ -64,13 +88,15 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                                 typeParamSymbol.name,
                                 typeParamSymbol.variance,
                                 typeParamSymbol.isReified,
-                                Key
+                                Key.Other
                             ) {
                                 for (boundRef in typeParamSymbol.resolvedBounds) {
                                     bound(boundRef.type)
                                 }
                             }
                         }
+                    }.also {
+                        it.remapTypeParameters(associatedConstructor.typeParameterSymbols)
                     }.symbol
                 } else {
                     null
@@ -83,13 +109,13 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
     * Generates constructors for:
     * - companion object
     * - ConstructorArgumentsKey base class
-    * - ConstructorArgumentsKey descendants
+    * - ConstructorArgumentsKey subclasses
     * */
     override fun generateConstructors(context: MemberGenerationContext): List<FirConstructorSymbol> {
         val origin = context.owner.origin as? FirDeclarationOrigin.Plugin
-        return if (origin?.key == Key) {
+        return if (origin?.key is Key) {
             val sourceDataClassClassId = context
-                .owner.classId // ConstructorArgumentsKey descendent
+                .owner.classId // ConstructorArgumentsKey subclass
                 .parentClassId // ConstructorArgumentsKey base class
                 ?.parentClassId // companion
                 ?.parentClassId // data class
@@ -97,19 +123,33 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                 .getAssociatedConstructors(sourceDataClassClassId)
                 ?.get(context.owner.name)
             val constructor = if (associatedConstructor != null) {
-                createConstructor(context.owner, Key, isPrimary = true, generateDelegatedNoArgConstructorCall = true) {
+                createConstructor(
+                    context.owner,
+                    Key.Other,
+                    isPrimary = true,
+                    generateDelegatedNoArgConstructorCall = true
+                ) {
                     for (ctorValueParam in associatedConstructor.valueParameterSymbols) {
-                        // TODO: default initializer
                         valueParameter(
                             ctorValueParam.name,
                             ctorValueParam.resolvedReturnType,
-                            isVararg = ctorValueParam.isVararg,
-                            hasDefaultValue = ctorValueParam.hasDefaultValue
+                            isVararg = ctorValueParam.isVararg
                         )
                     }
                 }
             } else {
-                createDefaultPrivateConstructor(context.owner, Key)
+                createConstructor(
+                    context.owner,
+                    Key.Other,
+                    isPrimary = true,
+                    generateDelegatedNoArgConstructorCall = true
+                ) {
+                    visibility = if (context.owner.name == Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS) {
+                        Visibilities.Protected
+                    } else {
+                        Visibilities.Private
+                    }
+                }
             }
             listOf(constructor.symbol)
         } else {
@@ -130,7 +170,12 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                 val constructors = session.cachingFactoryInfoProvider.getAssociatedConstructors(dataClassClassId)!!
                 val returnType = dataClassClassId.defaultType(dataClass.typeParameterSymbols)
                 constructors.entries.map { (constructorKey, constructorSymbol) ->
-                    createMemberFunction(context.owner, Key, Names.FACTORY_METHOD, returnType) {
+                    val constructorKeyClassId =
+                        context.owner.classId.createNestedClassId(Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS)
+                            .createNestedClassId(constructorKey)
+                    val declarationKey = Key.CreateFunction(constructorKeyClassId)
+
+                    createMemberFunction(context.owner, declarationKey, Names.FACTORY_METHOD, returnType) {
                         for (ctorTypeParam in constructorSymbol.typeParameterSymbols) {
                             typeParameter(
                                 ctorTypeParam.name,
@@ -146,30 +191,70 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                         }
 
                         for (ctorValueParam in constructorSymbol.valueParameterSymbols) {
-                            // TODO: default initializer
                             valueParameter(
                                 ctorValueParam.name,
-                                ctorValueParam.resolvedReturnType,
-                                hasDefaultValue = ctorValueParam.hasDefaultValue
+                                ctorValueParam.resolvedReturnType
                             )
                         }
+                    }.also {
+                        it.remapTypeParameters(constructorSymbol.typeParameterSymbols)
                     }.symbol
                 }
             }
+
             else -> emptyList()
         }
     }
 
-    // currently only cache property inside companion object
+    @OptIn(SymbolInternals::class)
+    private fun FirFunction.remapTypeParameters(oldTypeParameters: List<FirTypeParameterSymbol>) {
+        val substitution = oldTypeParameters
+            .zip(this.typeParameters)
+            .associate { (oldTp, newTp) -> oldTp to newTp.toConeType() }
+        val substitutor = ConeSubstitutorByMap(substitution, session)
+
+        for (typeParameter in this.typeParameters) {
+            val newBounds = typeParameter.symbol.resolvedBounds
+                .map { substitutor.substituteOrSelf(it.coneType).toFirResolvedTypeRef() }
+            typeParameter.symbol.fir.replaceBounds(newBounds)
+        }
+
+        this.transformValueParameters(object : FirTransformer<Nothing?>() {
+            override fun <E : FirElement> transformElement(element: E, data: Nothing?): E =
+                if (element is FirValueParameter) {
+                    val type = substitutor.substituteOrSelf(element.returnTypeRef.coneType)
+                    element.replaceReturnTypeRef(type.toFirResolvedTypeRef())
+                    element
+                } else {
+                    element
+                }
+        }, null)
+    }
+
+    @OptIn(SymbolInternals::class)
+    private fun FirClass.remapTypeParameters(oldTypeParameters: List<FirTypeParameterSymbol>) {
+        val substitution = oldTypeParameters
+            .zip(this.typeParameters)
+            .associate { (oldTp, newTp) -> oldTp to newTp.toConeType() }
+        val substitutor = ConeSubstitutorByMap(substitution, session)
+
+        for (typeParameter in this.typeParameters) {
+            val newBounds = typeParameter.symbol.resolvedBounds
+                .map { substitutor.substituteOrSelf(it.coneType).toFirResolvedTypeRef() }
+            typeParameter.symbol.fir.replaceBounds(newBounds)
+        }
+    }
+
+    @OptIn(SymbolInternals::class)
     override fun generateProperties(
         callableId: CallableId,
         context: MemberGenerationContext?
     ): List<FirPropertySymbol> {
         require(context != null)
 
-        // TODO: data class constructor fields
+        // properties for data class associated with constructor
         val sourceDataClassClassId = context
-            .owner.classId // ConstructorArgumentsKey descendent
+            .owner.classId // ConstructorArgumentsKey subclass
             .parentClassId // ConstructorArgumentsKey base class
             ?.parentClassId // companion
             ?.parentClassId // data class
@@ -182,12 +267,23 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
                 .first { it.name == callableId.callableName }
             val property = createMemberProperty(
                 owner = context.owner,
-                key = Key,
+                key = Key.Other,
                 name = callableId.callableName,
                 returnType = sourceValueParam.resolvedReturnType,
                 hasBackingField = true,
                 isVal = true
-            )
+            ).also {
+                val primaryConstructorParameter = context.owner.fir
+                    .primaryConstructorIfAny(session)!!
+                    .valueParameterSymbols
+                    .first { vp -> vp.name == callableId.callableName }
+                it.replaceInitializer(buildPropertyAccessExpression {
+                    calleeReference = buildPropertyFromParameterResolvedNamedReference {
+                        name = callableId.callableName
+                        resolvedSymbol = primaryConstructorParameter
+                    }
+                })
+            }
             return listOf(property.symbol)
         }
 
@@ -196,22 +292,44 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
         val companionObject = context.owner
         val companionObjectClassId = context.owner.classId
 
-        val mapType = Names.MAP_CLASS_ID.toConeType(
-            arrayOf(
-                ClassId(companionObjectClassId.asSingleFqName(), Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS).toConeType(),
-                companionObjectClassId.parentClassId!!.toConeType()
-            )
+        val typeArgs: Array<ConeTypeProjection> = arrayOf(
+            ClassId(companionObjectClassId.asSingleFqName(), Names.CONSTRUCTOR_ARGUMENTS_BASE_CLASS).toConeType(),
+            companionObjectClassId.parentClassId!!.toConeType()
         )
 
+        // cache property inside companion object
         val cacheProp = createMemberProperty(
             owner = companionObject,
-            key = Key,
+            key = Key.CacheProperty,
             name = callableId.callableName,
-            returnType = mapType,
+            returnType = StandardClassIds.MutableMap.toConeType(typeArgs),
             hasBackingField = true,
             isVal = true
         ) {
             visibility = Visibilities.Private
+        }.also {
+            val mutableMapOfCall = buildFunctionCall {
+                val mutableMapOfFunction = session.symbolProvider
+                    .getTopLevelCallableSymbols(
+                        Names.MUTABLE_MAP_OF_CALLABLE_ID.packageName,
+                        Names.MUTABLE_MAP_OF_CALLABLE_ID.callableName
+                    )
+                    .first()
+                calleeReference = buildResolvedNamedReference {
+                    name = Names.MUTABLE_MAP_OF_CALLABLE_ID.callableName
+                    resolvedSymbol = mutableMapOfFunction
+                }
+                argumentList = buildResolvedArgumentList(LinkedHashMap())
+                typeArguments.addAll(
+                    typeArgs.map {
+                        buildTypeProjectionWithVariance {
+                            typeRef = buildResolvedTypeRef { type = it.type!! }
+                            variance = Variance.INVARIANT
+                        }
+                    })
+            }
+
+            it.replaceInitializer(mutableMapOfCall)
         }
 
         return listOf(cacheProp.symbol)
@@ -230,9 +348,13 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
 
         return when (classSymbol.classKind) {
             ClassKind.OBJECT -> {
-                if (classSymbol.isCompanion && parentClassSymbol.isData) {
+                if (classSymbol.isCompanion && parentClassSymbol.isData && session.predicateBasedProvider.matches(
+                        CACHING_FACTORY_ANNOTATED_PREDICATE,
+                        parentClassSymbol
+                    )
+                ) {
                     val names = buildSet {
-                        if (origin?.key == Key) {
+                        if (origin?.key is Key) {
                             add(SpecialNames.INIT)
                         }
 
@@ -248,7 +370,7 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
             }
 
             ClassKind.CLASS -> {
-                if (origin?.key == Key) {
+                if (origin?.key is Key) {
                     buildSet {
                         add(SpecialNames.INIT)
                         val sourceDataClassClassId = parentClassId.parentClassId?.parentClassId
@@ -319,9 +441,12 @@ class CachingFactoryGenerator(session: FirSession) : FirDeclarationGenerationExt
         register(CACHING_FACTORY_ANNOTATED_PREDICATE)
     }
 
-    object Key : GeneratedDeclarationKey() {
-        override fun toString(): String {
-            return "CachingFactoryGeneratorKey"
-        }
+    sealed class Key : GeneratedDeclarationKey() {
+        data class CreateFunction(val associatedConstructorKeyType: ClassId) : Key()
+        data object ConstructorKey : Key()
+        data object ConstructorKeyBaseClass : Key()
+        data object CacheProperty : Key()
+        data object Companion : Key()
+        data object Other : Key()
     }
 }

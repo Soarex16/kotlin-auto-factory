@@ -3,7 +3,7 @@
  *
  * ## Ограничения:
  * 1. Аннотацию можно повесить только на data class-ы
- * 2. Тут обитают драконы
+ * 2. Дефолтные значения конструкторов не поддерживаются
  *
  * ## Модель компиляции:
  * 1. Получаем список конструкторов
@@ -49,11 +49,11 @@ data class SomeTransformed<T> private constructor(val fieldInt: Int, val fieldSt
             data class Arguments_SecondaryCtor<T> constructor(val x: T): ConstructorArgumentsKey()
         }
         fun <T> create(fieldInt: Int, fieldString: String, fieldDefaultInt: Int = 42, fieldGeneric: T): SomeTransformed<T> {
-            return cache.getOrPut(Arguments_PrimaryCtor(fieldInt, fieldString, fieldDefaultInt, fieldGeneric)) { SomeTransformed(fieldInt, fieldString, fieldDefaultInt, fieldGeneric) } as SomeTransformed<T>
+            return cache.getOrPut(ConstructorArgumentsKey.Arguments_PrimaryCtor(fieldInt, fieldString, fieldDefaultInt, fieldGeneric)) { SomeTransformed(fieldInt, fieldString, fieldDefaultInt, fieldGeneric) } as SomeTransformed<T>
         }
 
         fun <T> create(x: T): SomeTransformed<T> {
-            return cache.getOrPut(Arguments_SecondaryCtor(x)) { SomeTransformed(x) } as SomeTransformed<T>
+            return cache.getOrPut(ConstructorArgumentsKey.Arguments_SecondaryCtor(x)) { SomeTransformed(x) } as SomeTransformed<T>
         }
     }
 }

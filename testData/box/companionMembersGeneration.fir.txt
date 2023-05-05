@@ -1,6 +1,34 @@
 FILE: companionMembersGeneration.kt
     package foo.bar
 
+    public final data class DataClassWithoutAnnotation : R|kotlin/Any| {
+        public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutAnnotation| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val a: R|kotlin/Int| = R|<local>/a|
+            public get(): R|kotlin/Int|
+
+        public final val b: R|kotlin/String| = R|<local>/b|
+            public get(): R|kotlin/String|
+
+        public final companion object Companion : R|kotlin/Any| {
+            private constructor(): R|foo/bar/DataClassWithoutAnnotation.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            public final val x: R|kotlin/Int| = Int(100)
+                public get(): R|kotlin/Int|
+
+        }
+
+        public final operator fun component1(): R|kotlin/Int|
+
+        public final operator fun component2(): R|kotlin/String|
+
+        public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithoutAnnotation|.R|foo/bar/DataClassWithoutAnnotation.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithoutAnnotation|.R|foo/bar/DataClassWithoutAnnotation.b|): R|foo/bar/DataClassWithoutAnnotation|
+
+    }
     @R|com/soarex/autofactory/annotations/CachingFactory|() public final data class DataClassWithoutCompanion : R|kotlin/Any| {
         private constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutCompanion| {
             super<R|kotlin/Any|>()
@@ -19,8 +47,8 @@ FILE: companionMembersGeneration.kt
         public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithoutCompanion|.R|foo/bar/DataClassWithoutCompanion.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithoutCompanion|.R|foo/bar/DataClassWithoutCompanion.b|): R|foo/bar/DataClassWithoutCompanion|
 
         public final companion object Companion : R|kotlin/Any| {
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithoutCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithoutCompanion>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithoutCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithoutCompanion>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithoutCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithoutCompanion>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithoutCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithoutCompanion|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithoutCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithoutCompanion>|
 
             public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutCompanion|
 
@@ -29,15 +57,15 @@ FILE: companionMembersGeneration.kt
             }
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithoutCompanion_constructor_2100853505 : R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithoutCompanion_constructor_2100853505 : R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|kotlin/String|
+                    public final val b: R|kotlin/String| = R|<local>/b|
                         public get(): R|kotlin/String|
 
                     public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithoutCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithoutCompanion_constructor_2100853505| {
@@ -70,21 +98,21 @@ FILE: companionMembersGeneration.kt
             public final val x: R|kotlin/Int| = Int(42)
                 public get(): R|kotlin/Int|
 
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithCompanion>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithCompanion>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithCompanion>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithCompanion|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithCompanion/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithCompanion>|
 
             public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithCompanion|
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithCompanion_constructor_2100853505 : R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithCompanion_constructor_2100853505 : R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|kotlin/String|
+                    public final val b: R|kotlin/String| = R|<local>/b|
                         public get(): R|kotlin/String|
 
                     public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithCompanion.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithCompanion_constructor_2100853505| {
@@ -123,21 +151,21 @@ FILE: companionMembersGeneration.kt
             public final val x: R|kotlin/Int| = Int(42)
                 public get(): R|kotlin/Int|
 
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithNamedCompanion/NamedCompanion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithNamedCompanion>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithNamedCompanion/NamedCompanion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithNamedCompanion>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithNamedCompanion/NamedCompanion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithNamedCompanion>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithNamedCompanion/NamedCompanion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithNamedCompanion|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithNamedCompanion/NamedCompanion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithNamedCompanion>|
 
             public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithNamedCompanion|
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithNamedCompanion_constructor_2100853505 : R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithNamedCompanion_constructor_2100853505 : R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|kotlin/String|
+                    public final val b: R|kotlin/String| = R|<local>/b|
                         public get(): R|kotlin/String|
 
                     public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithNamedCompanion_constructor_2100853505| {
@@ -179,8 +207,8 @@ FILE: companionMembersGeneration.kt
         public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithAdditionalConstructor|.R|foo/bar/DataClassWithAdditionalConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithAdditionalConstructor|.R|foo/bar/DataClassWithAdditionalConstructor.b|): R|foo/bar/DataClassWithAdditionalConstructor|
 
         public final companion object Companion : R|kotlin/Any| {
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAdditionalConstructor>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAdditionalConstructor>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAdditionalConstructor>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithAdditionalConstructor|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithAdditionalConstructor>|
 
             public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAdditionalConstructor|
 
@@ -191,15 +219,15 @@ FILE: companionMembersGeneration.kt
             }
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|kotlin/String|
+                    public final val b: R|kotlin/String| = R|<local>/b|
                         public get(): R|kotlin/String|
 
                     public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithAdditionalConstructor_constructor_2100853505| {
@@ -208,8 +236,8 @@ FILE: companionMembersGeneration.kt
 
                 }
 
-                public sealed data class DataClassWithAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
                     public constructor(a: R|kotlin/Int|): R|foo/bar/DataClassWithAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithAdditionalConstructor_constructor_14233025| {
@@ -245,8 +273,8 @@ FILE: companionMembersGeneration.kt
         public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithIgnoredConstructor|.R|foo/bar/DataClassWithIgnoredConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithIgnoredConstructor|.R|foo/bar/DataClassWithIgnoredConstructor.b|): R|foo/bar/DataClassWithIgnoredConstructor|
 
         public final companion object Companion : R|kotlin/Any| {
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithIgnoredConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithIgnoredConstructor>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithIgnoredConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithIgnoredConstructor>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithIgnoredConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithIgnoredConstructor>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithIgnoredConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithIgnoredConstructor|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithIgnoredConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithIgnoredConstructor>|
 
             public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithIgnoredConstructor|
 
@@ -255,15 +283,15 @@ FILE: companionMembersGeneration.kt
             }
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithIgnoredConstructor_constructor_2100853505 : R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithIgnoredConstructor_constructor_2100853505 : R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|kotlin/String|
+                    public final val b: R|kotlin/String| = R|<local>/b|
                         public get(): R|kotlin/String|
 
                     public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithIgnoredConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithIgnoredConstructor_constructor_2100853505| {
@@ -303,8 +331,8 @@ FILE: companionMembersGeneration.kt
         public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|.R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.a|, b: R|kotlin/String| = this@R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|.R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.b|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|
 
         public final companion object Companion : R|kotlin/Any| {
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor>|
 
             public final fun create(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|
 
@@ -315,15 +343,15 @@ FILE: companionMembersGeneration.kt
             }
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|kotlin/String|
+                    public final val b: R|kotlin/String| = R|<local>/b|
                         public get(): R|kotlin/String|
 
                     public constructor(a: R|kotlin/Int|, b: R|kotlin/String|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithPublicAndPrivateAdditionalConstructor_constructor_2100853505| {
@@ -332,8 +360,8 @@ FILE: companionMembersGeneration.kt
 
                 }
 
-                public sealed data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025 : R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
                     public constructor(a: R|kotlin/Int|): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithPublicAndPrivateAdditionalConstructor_constructor_14233025| {
@@ -347,8 +375,8 @@ FILE: companionMembersGeneration.kt
         }
 
     }
-    @R|com/soarex/autofactory/annotations/CachingFactory|() public final data class DataClassWithTypeParams<K : R|kotlin/Comparable<K>|, V> : R|kotlin/Any| {
-        private constructor<K : R|kotlin/Comparable<K>|, V>(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams<K, V>| {
+    @R|com/soarex/autofactory/annotations/CachingFactory|() public final data class DataClassWithTypeParams<K : R|kotlin/Number|, V> : R|kotlin/Any| {
+        private constructor<K : R|kotlin/Number|, V>(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams<K, V>| {
             super<R|kotlin/Any|>()
         }
 
@@ -370,31 +398,31 @@ FILE: companionMembersGeneration.kt
         public final fun copy(a: R|kotlin/Int| = this@R|foo/bar/DataClassWithTypeParams|.R|foo/bar/DataClassWithTypeParams.a|, b: R|K| = this@R|foo/bar/DataClassWithTypeParams|.R|foo/bar/DataClassWithTypeParams.b|, c: R|V| = this@R|foo/bar/DataClassWithTypeParams|.R|foo/bar/DataClassWithTypeParams.c|): R|foo/bar/DataClassWithTypeParams<K, V>|
 
         public final companion object Companion : R|kotlin/Any| {
-            private final val __CachingFactoryGenerated__cache: R|kotlin.collections.MutableMap<foo/bar/DataClassWithTypeParams/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithTypeParams>|
-                private get(): R|kotlin.collections.MutableMap<foo/bar/DataClassWithTypeParams/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithTypeParams>|
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/DataClassWithTypeParams/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithTypeParams>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/DataClassWithTypeParams/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/DataClassWithTypeParams|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/DataClassWithTypeParams/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/DataClassWithTypeParams>|
 
-            public final fun <K : R|kotlin/Comparable<K>|, V> create(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams<K, V>|
+            public final fun <K : R|kotlin/Number|, V> create(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams<K, V>|
 
             private constructor(): R|foo/bar/DataClassWithTypeParams.Companion| {
                 super<R|kotlin/Any|>()
             }
 
             private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
-                private constructor(): R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                protected constructor(): R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
                     super<R|kotlin/Any|>()
                 }
 
-                public sealed data class DataClassWithTypeParams_constructor_3739009089<K : R|kotlin/Comparable<K>|, V> : R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
-                    public final val a: R|kotlin/Int|
+                public final data class DataClassWithTypeParams_constructor_3739009089<K : R|kotlin/Number|, V> : R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val a: R|kotlin/Int| = R|<local>/a|
                         public get(): R|kotlin/Int|
 
-                    public final val b: R|K|
+                    public final val b: R|K| = R|<local>/b|
                         public get(): R|K|
 
-                    public final val c: R|V|
+                    public final val c: R|V| = R|<local>/c|
                         public get(): R|V|
 
-                    public constructor<K : R|kotlin/Comparable<K>|, V>(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithTypeParams_constructor_3739009089<K, V>| {
+                    public constructor<K : R|kotlin/Number|, V>(a: R|kotlin/Int|, b: R|K|, c: R|V|): R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.DataClassWithTypeParams_constructor_3739009089<K, V>| {
                         super<R|foo/bar/DataClassWithTypeParams.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
                     }
 
@@ -405,6 +433,124 @@ FILE: companionMembersGeneration.kt
         }
 
     }
+    public final fun <T> checkIsSame(factory: R|() -> T|): R|kotlin/Boolean| {
+        ^checkIsSame ===(R|<local>/factory|.R|SubstitutionOverride<kotlin/Function0.invoke: R|T|>|(), R|<local>/factory|.R|SubstitutionOverride<kotlin/Function0.invoke: R|T|>|())
+    }
+    public final fun <T> checkIsNotSame(factory: R|() -> T|): R|kotlin/Boolean| {
+        ^checkIsNotSame !==(R|<local>/factory|.R|SubstitutionOverride<kotlin/Function0.invoke: R|T|>|(), R|<local>/factory|.R|SubstitutionOverride<kotlin/Function0.invoke: R|T|>|())
+    }
     public final fun box(): R|kotlin/String| {
-        ^box String(OK)
+        lvar i: R|kotlin/Int| = Int(1)
+        lval testCases: R|kotlin/collections/List<kotlin/Boolean>| = R|kotlin/collections/listOf|<R|kotlin/Boolean|>(vararg(R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithoutCompanion|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithoutCompanion| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithoutCompanion|.R|foo/bar/DataClassWithoutCompanion.Companion.create|(Int(1), String(foo))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithCompanion|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithCompanion| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithCompanion|.R|foo/bar/DataClassWithCompanion.Companion.create|(Int(1), String(foo))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithNamedCompanion|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithNamedCompanion| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithNamedCompanion|.R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.create|(Int(1), String(foo))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithAdditionalConstructor|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithAdditionalConstructor|.R|foo/bar/DataClassWithAdditionalConstructor.Companion.create|(Int(1), String(foo))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithIgnoredConstructor|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithIgnoredConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithIgnoredConstructor|.R|foo/bar/DataClassWithIgnoredConstructor.Companion.create|(Int(1), String(foo))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithAdditionalConstructor|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithAdditionalConstructor|.R|foo/bar/DataClassWithAdditionalConstructor.Companion.create|(Int(1))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|.R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.create|(Int(1), String(foo))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|.R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.create|(Int(1))
+        }
+        ), R|foo/bar/checkIsSame|<R|foo/bar/DataClassWithTypeParams<K, V>|>(<L> = checkIsSame@fun <anonymous>(): R|foo/bar/DataClassWithTypeParams<K, V>| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithTypeParams|.R|foo/bar/DataClassWithTypeParams.Companion.create|<R|kotlin/Int|, R|kotlin/String|>(Int(1), Int(1), String(1))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithoutCompanion|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithoutCompanion| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithoutCompanion|.R|foo/bar/DataClassWithoutCompanion.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , String(foo))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithCompanion|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithCompanion| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithCompanion|.R|foo/bar/DataClassWithCompanion.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , String(foo))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithNamedCompanion|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithNamedCompanion| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithNamedCompanion|.R|foo/bar/DataClassWithNamedCompanion.NamedCompanion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , String(foo))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithAdditionalConstructor|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithAdditionalConstructor|.R|foo/bar/DataClassWithAdditionalConstructor.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , String(foo))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithIgnoredConstructor|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithIgnoredConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithIgnoredConstructor|.R|foo/bar/DataClassWithIgnoredConstructor.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , String(foo))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithAdditionalConstructor|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithAdditionalConstructor|.R|foo/bar/DataClassWithAdditionalConstructor.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            )
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|.R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , String(foo))
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor|.R|foo/bar/DataClassWithPublicAndPrivateAdditionalConstructor.Companion.create|( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            )
+        }
+        ), R|foo/bar/checkIsNotSame|<R|foo/bar/DataClassWithTypeParams<K, V>|>(<L> = checkIsNotSame@fun <anonymous>(): R|foo/bar/DataClassWithTypeParams<K, V>| <inline=NoInline>  {
+            ^ Q|foo/bar/DataClassWithTypeParams|.R|foo/bar/DataClassWithTypeParams.Companion.create|<R|kotlin/Int|, R|kotlin/String|>( {
+                lval <unary>: R|kotlin/Int| = R|<local>/i|
+                R|<local>/i| = R|<local>/<unary>|.R|kotlin/Int.inc|()
+                R|<local>/<unary>|
+            }
+            , Int(1), String(1))
+        }
+        )))
+        ^box when () {
+            R|<local>/testCases|.R|kotlin/collections/all|<R|kotlin/Boolean|>(<L> = all@fun <anonymous>(it: R|kotlin/Boolean|): R|kotlin/Boolean| <inline=Inline, kind=UNKNOWN>  {
+                ^ R|<local>/it|
+            }
+            ) ->  {
+                String(OK)
+            }
+            else ->  {
+                String(FAIL)
+            }
+        }
+
     }

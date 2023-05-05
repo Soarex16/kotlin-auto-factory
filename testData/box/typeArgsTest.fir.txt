@@ -1,0 +1,60 @@
+FILE: typeArgsTest.kt
+    package foo.bar
+
+    @R|com/soarex/autofactory/annotations/CachingFactory|() public final data class SomeTransformed<K : R|kotlin/Number|, R|kotlin/Comparable<K>|> : R|kotlin/Any| {
+        private constructor<K : R|kotlin/Number|, R|kotlin/Comparable<K>|>(fieldGeneric: R|K|): R|foo/bar/SomeTransformed<K>| {
+            super<R|kotlin/Any|>()
+        }
+
+        public final val fieldGeneric: R|K| = R|<local>/fieldGeneric|
+            public get(): R|K|
+
+        public final operator fun component1(): R|K|
+
+        public final fun copy(fieldGeneric: R|K| = this@R|foo/bar/SomeTransformed|.R|foo/bar/SomeTransformed.fieldGeneric|): R|foo/bar/SomeTransformed<K>|
+
+        public final companion object Companion : R|kotlin/Any| {
+            private final val __CachingFactoryGenerated__cache: R|kotlin/collections/MutableMap<foo/bar/SomeTransformed/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/SomeTransformed>| = R|kotlin/collections/mutableMapOf|<R|foo/bar/SomeTransformed/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey|, R|foo/bar/SomeTransformed|>()
+                private get(): R|kotlin/collections/MutableMap<foo/bar/SomeTransformed/Companion/__CachingFactoryGenerated__ConstructorArgumentsKey, foo/bar/SomeTransformed>|
+
+            public final fun <K : R|kotlin/Number|, R|kotlin/Comparable<K>|> create(fieldGeneric: R|K|): R|foo/bar/SomeTransformed<K>|
+
+            private constructor(): R|foo/bar/SomeTransformed.Companion| {
+                super<R|kotlin/Any|>()
+            }
+
+            private sealed class __CachingFactoryGenerated__ConstructorArgumentsKey : R|kotlin/Any| {
+                protected constructor(): R|foo/bar/SomeTransformed.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    super<R|kotlin/Any|>()
+                }
+
+                public final data class SomeTransformed_constructor_2150876551<K : R|kotlin/Number|, R|kotlin/Comparable<K>|> : R|foo/bar/SomeTransformed.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey| {
+                    public final val fieldGeneric: R|K| = R|<local>/fieldGeneric|
+                        public get(): R|K|
+
+                    public constructor<K : R|kotlin/Number|, R|kotlin/Comparable<K>|>(fieldGeneric: R|K|): R|foo/bar/SomeTransformed.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey.SomeTransformed_constructor_2150876551<K>| {
+                        super<R|foo/bar/SomeTransformed.Companion.__CachingFactoryGenerated__ConstructorArgumentsKey|>()
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+    public final fun box(): R|kotlin/String| {
+        lval i1: R|foo/bar/SomeTransformed<K>| = Q|foo/bar/SomeTransformed|.R|foo/bar/SomeTransformed.Companion.create|<R|kotlin/Int|>(Int(1))
+        lval i2: R|foo/bar/SomeTransformed<K>| = Q|foo/bar/SomeTransformed|.R|foo/bar/SomeTransformed.Companion.create|<R|kotlin/Int|>(Int(1))
+        lval s1: R|foo/bar/SomeTransformed<K>| = Q|foo/bar/SomeTransformed|.R|foo/bar/SomeTransformed.Companion.create|<R|kotlin/Double|>(Double(1.2))
+        lval s2: R|foo/bar/SomeTransformed<K>| = Q|foo/bar/SomeTransformed|.R|foo/bar/SomeTransformed.Companion.create|<R|kotlin/Double|>(Double(1.2))
+        ^box when () {
+            ===(R|<local>/i1|, R|<local>/i2|) && ===(R|<local>/s1|, R|<local>/s2|) ->  {
+                String(OK)
+            }
+            else ->  {
+                String(FAIL)
+            }
+        }
+
+    }

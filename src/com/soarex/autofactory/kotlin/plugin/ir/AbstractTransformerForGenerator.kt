@@ -67,25 +67,6 @@ abstract class AbstractTransformerForGenerator(
     }
 
     // ------------------------ utilities ------------------------
-
-    protected fun generateDefaultBodyForMaterializeFunction(function: IrSimpleFunction): IrBody? {
-        val constructedType = function.returnType as? IrSimpleType ?: return null
-        val constructedClassSymbol = constructedType.classifier
-        val constructedClass = constructedClassSymbol.owner as? IrClass ?: return null
-        val constructor = constructedClass.primaryConstructor ?: return null
-        val constructorCall = IrConstructorCallImpl(
-            -1,
-            -1,
-            constructedType,
-            constructor.symbol,
-            typeArgumentsCount = 0,
-            constructorTypeArgumentsCount = 0,
-            valueArgumentsCount = 0
-        )
-        val returnStatement = IrReturnImpl(-1, -1, irBuiltIns.nothingType, function.symbol, constructorCall)
-        return irFactory.createBlockBody(-1, -1, listOf(returnStatement))
-    }
-
     protected fun generateBodyForDefaultConstructor(declaration: IrConstructor): IrBody? {
         val type = declaration.returnType as? IrSimpleType ?: return null
 

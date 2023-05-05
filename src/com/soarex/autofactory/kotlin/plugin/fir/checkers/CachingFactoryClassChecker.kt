@@ -11,7 +11,9 @@ import org.jetbrains.kotlin.fir.declarations.constructors
 
 object CachingFactoryClassChecker : FirClassChecker() {
     override fun check(declaration: FirClass, context: CheckerContext, reporter: DiagnosticReporter) {
-        if (!declaration.hasConstructorsSuitableForCachingFactory(context.session)) {
+        if (declaration.hasCachingFactory(context.session) &&
+            !declaration.hasConstructorsSuitableForCachingFactory(context.session)
+        ) {
             reporter.reportOn(
                 declaration.source,
                 PluginErrors.NO_SUITABLE_CONSTRUCTORS,
